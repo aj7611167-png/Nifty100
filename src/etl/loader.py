@@ -1,40 +1,85 @@
 import pandas as pd
 from pathlib import Path
 
+# ==========================================================
+# CONFIGURATION
+# ==========================================================
+
 RAW_DATA_DIR = Path("data/raw")
 
-special_files = [
-    "companies.xlsx",
-    "profitandloss.xlsx",
-    "balancesheet.xlsx",
-    "cashflow.xlsx",
-    "analysis.xlsx",
-    "documents.xlsx",
-    "prosandcons.xlsx",
-]
+FILES = {
+    "companies.xlsx": 1,
+    "profitandloss.xlsx": 1,
+    "balancesheet.xlsx": 1,
+    "cashflow.xlsx": 1,
+    "analysis.xlsx": 1,
+    "documents.xlsx": 1,
+    "prosandcons.xlsx": 1,
+    "sectors.xlsx": 0,
+    "stock_prices.xlsx": 0,
+    "financial_ratios.xlsx": 0,
+    "peer_groups.xlsx": 0,
+    "market_cap.xlsx": 0,
+}
 
-normal_files = [
-    "sectors.xlsx",
-    "stock_prices.xlsx",
-    "financial_ratios.xlsx",
-    "peer_groups.xlsx",
-    "market_cap.xlsx",
-]
 
-for file in special_files:
-    path = RAW_DATA_DIR / file
+# ==========================================================
+# FUNCTIONS
+# ==========================================================
 
-    df = pd.read_excel(path, header=1)
+def inspect_excel(file_name, header_row):
+    """
+    Read an Excel file and display its structure.
+    """
 
-    print(f"\n{file}")
-    print(df.columns.tolist())
-    print(df.shape)
+    path = RAW_DATA_DIR / file_name
 
-for file in normal_files:
-    path = RAW_DATA_DIR / file
+    print("=" * 80)
+    print(f"FILE : {file_name}")
+    print("=" * 80)
 
-    df = pd.read_excel(path)
+    if not path.exists():
+        print("❌ File not found")
+        print(path)
+        print()
+        return
 
-    print(f"\n{file}")
-    print(df.columns.tolist())
-    print(df.shape)
+    try:
+        df = pd.read_excel(path, header=header_row)
+
+        print(f"Rows    : {len(df)}")
+        print(f"Columns : {len(df.columns)}")
+        print(f"Shape   : {df.shape}")
+
+        print("\nColumn Names:")
+        for i, column in enumerate(df.columns, start=1):
+            print(f"{i:2}. {column}")
+
+        print("\nFirst 5 Rows:")
+        print(df.head())
+
+        print()
+
+    except Exception as e:
+        print(f"❌ Error reading file: {e}")
+        print()
+
+
+# ==========================================================
+# MAIN
+# ==========================================================
+
+def main():
+
+    print("\nInspecting Excel files...\n")
+
+    for file_name, header_row in FILES.items():
+        inspect_excel(file_name, header_row)
+
+    print("=" * 80)
+    print("Inspection Complete")
+    print("=" * 80)
+
+
+if __name__ == "__main__":
+    main()
