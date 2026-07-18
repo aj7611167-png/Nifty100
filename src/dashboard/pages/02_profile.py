@@ -73,6 +73,32 @@ with right:
     )
 
 # =====================================================
+# LOAD PROFIT & LOSS DATA (ONLY ONCE)
+# =====================================================
+
+pl = get_pl(latest["id"])
+
+net_profit_margin = None
+
+if not pl.empty:
+
+    latest_pl = (
+        pl
+        .sort_values("year", ascending=False)
+        .iloc[0]
+    )
+
+    sales = latest_pl["sales"]
+    net_profit = latest_pl["net_profit"]
+
+    if (
+        pd.notna(sales)
+        and sales != 0
+        and pd.notna(net_profit)
+    ):
+        net_profit_margin = (net_profit / sales) * 100
+
+# =====================================================
 # KEY FINANCIAL METRICS
 # =====================================================
 
@@ -83,55 +109,59 @@ c1, c2, c3, c4 = st.columns(4)
 
 with c1:
 
-    value = latest["net_profit_margin_pct"]
-
     st.metric(
         "Net Profit Margin",
-        "N/A" if pd.isna(value) else f"{value:.2f}%"
+        "N/A"
+        if net_profit_margin is None
+        else f"{net_profit_margin:.2f}%"
     )
 
 with c2:
 
-    value = latest["debt_to_equity"]
+    debt = latest["debt_to_equity"]
 
     st.metric(
         "Debt / Equity",
-        "N/A" if pd.isna(value) else f"{value:.2f}"
+        "N/A"
+        if pd.isna(debt)
+        else f"{debt:.2f}"
     )
 
 with c3:
 
-    value = latest["revenue_cagr_5yr"]
+    cagr = latest["revenue_cagr_5yr"]
 
     st.metric(
         "Revenue CAGR (5Y)",
-        "N/A" if pd.isna(value) else f"{value:.2f}%"
+        "N/A"
+        if pd.isna(cagr)
+        else f"{cagr:.2f}%"
     )
 
 with c4:
 
-    value = latest["free_cash_flow_cr"]
+    fcf = latest["free_cash_flow_cr"]
 
     st.metric(
         "Free Cash Flow",
-        "N/A" if pd.isna(value) else f"₹ {value:.2f} Cr"
+        "N/A"
+        if pd.isna(fcf)
+        else f"₹ {fcf:.2f} Cr"
     )
 
 # =====================================================
-# SALES & NET PROFIT TREND
+# SALES VS NET PROFIT
 # =====================================================
 
 st.markdown("---")
 st.subheader("Sales vs Net Profit")
 
-pl = get_pl(latest["id"])
-
 if not pl.empty:
 
-    pl = pl.sort_values("year")
+    chart_pl = pl.sort_values("year")
 
     fig = px.bar(
-        pl,
+        chart_pl,
         x="year",
         y=["sales", "net_profit"],
         barmode="group",
@@ -153,7 +183,7 @@ else:
     st.info("Profit & Loss data not available.")
 
 # =====================================================
-# ROE vs ROCE TREND
+# ROE VS ROCE TREND
 # =====================================================
 
 st.markdown("---")
@@ -277,6 +307,7 @@ if not pc.empty:
 
         for p in pros:
             p = p.strip()
+
             if p:
                 st.write(f"✅ {p}")
 
@@ -288,6 +319,7 @@ if not pc.empty:
 
         for c in cons:
             c = c.strip()
+
             if c:
                 st.write(f"❌ {c}")
 
