@@ -1,87 +1,161 @@
-# Nifty100 Analytics Platform
+# 📈 Nifty100 Analytics Platform
 
-A complete data analytics platform developed as part of the **Bluestock Fintech Data Analytics Internship**.
+A complete financial analytics platform developed as part of the **Bluestock Fintech Data Analytics Internship**.
 
-## Project Overview
-
-The project analyzes Nifty100 companies by collecting, cleaning, validating, storing, and analyzing financial data. It provides stock screening, peer comparison, radar charts, and company insights using Python and SQLite.
+The project collects, validates, stores, analyzes, and visualizes financial data of Nifty100 companies using Python, SQLite, and Streamlit.
 
 ---
 
-# Sprint 1 - Data Foundation
+# 🚀 Project Features
+
+## Sprint 1 – Data Foundation
 
 - Environment setup
-- ETL pipeline
-- Data ingestion
-- Data normalization
-- Data quality validation
-- SQLite database creation
-- Automated data loading
+- ETL Pipeline
+- Data Cleaning
+- Data Normalization
+- Data Validation
+- SQLite Database Creation
+- Automated Data Loading
 
 ---
 
-# Sprint 2 - Financial Analytics
+## Sprint 2 – Financial Analytics
 
-- Financial ratio calculations
-- CAGR calculations
-- Quality score generation
-- Financial KPIs
-- Company scoring engine
-- Screener engine
-- Master dataframe creation
+- Financial Ratio Calculations
+- Revenue CAGR
+- PAT CAGR
+- EPS CAGR
+- Composite Quality Score
+- Financial KPI Engine
+- Master Analytics Dataset
 
 ---
 
-# Sprint 3 - Analytics & Reporting
+## Sprint 3 – Analytics & Reporting
 
-- Stock Screener
+- Stock Screener Engine
 - Peer Group Analysis
 - Peer Comparison Excel Report
 - Radar Chart Generation
 - Company Insights
 - Data Quality Report
-- Excel Export with Formatting
+- Excel Export
 
 ---
 
-## Technologies Used
+## Sprint 4 – Interactive Dashboard
+
+### Dashboard Home
+
+- Overall Market Summary
+- Total Companies
+- Sector Distribution
+- Financial KPIs
+- Interactive Charts
+
+### Company Profile
+
+- Company Information
+- ROE & ROCE
+- Net Profit Margin
+- Debt to Equity
+- Revenue CAGR
+- Free Cash Flow
+- Sales vs Net Profit
+- Balance Sheet Charts
+- Cash Flow Charts
+- Pros & Cons
+
+### Stock Screener
+
+- Sector Filter
+- ROE Filter
+- ROCE Filter
+- Debt/Equity Filter
+- Quality Score Filter
+- Revenue CAGR Filter
+- Free Cash Flow Filter
+- Download Results as CSV
+
+---
+
+# 🛠 Technologies Used
 
 - Python
 - Pandas
+- NumPy
 - SQLite
+- SQLAlchemy
+- Streamlit
+- Plotly
 - OpenPyXL
-- Matplotlib
+- Pytest
+- Python-dotenv
 
 ---
 
-## Project Structure
+# 📁 Project Structure
 
 ```
-config/
-db/
-docs/
-output/
-reports/
-src/
+nifty100-project/
+│
+├── config/
+├── db/
+├── docs/
+├── output/
+├── reports/
+├── src/
+│   ├── analytics/
+│   ├── dashboard/
+│   │   ├── app.py
+│   │   ├── pages/
+│   │   └── utils/
+│   └── data/
+│
+├── tests/
+├── requirements.txt
+├── README.md
+└── Makefile
 ```
 
 ---
 
-## Installation
+# ⚙ Installation
 
-Create a virtual environment:
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Move into the project
+
+```bash
+cd nifty100-project
+```
+
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate it:
+Activate virtual environment
+
+### macOS/Linux
 
 ```bash
 source venv/bin/activate
 ```
 
-Install dependencies:
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -89,48 +163,72 @@ pip install -r requirements.txt
 
 ---
 
-## Running the Project
+# ▶ Running the Dashboard
 
-Run Screener:
-
-```bash
-python -m src.analytics.screener
-```
-
-Run Peer Comparison:
+Launch Streamlit Dashboard
 
 ```bash
-python -m src.analytics.export_peer_excel
+streamlit run src/dashboard/app.py
 ```
 
-Generate Radar Charts:
-
-```bash
-python -m src.analytics.radar
-```
-
-Generate Company Reports:
-
-```bash
-python -m src.analytics.report
-```
+The dashboard opens automatically in your browser.
 
 ---
 
-## Outputs
+# 📊 Dashboard Pages
+
+## 🏠 Home Dashboard
+
+- Company Summary
+- Financial Overview
+- Sector Analysis
+
+---
+
+## 🏢 Company Profile
+
+- Company Information
+- Financial Metrics
+- Sales & Profit Charts
+- Balance Sheet
+- Cash Flow
+- Pros & Cons
+
+---
+
+## 🔎 Stock Screener
+
+- Apply Financial Filters
+- Interactive Results
+- CSV Download
+
+---
+
+# 📦 Outputs
 
 - SQLite Database
+- Financial Analytics
+- Dashboard
+- Company Profiles
+- Stock Screener
+- Peer Comparison Reports
 - Validation Reports
-- Screener Output (Excel)
-- Peer Comparison Workbook
-- Radar Charts
-- Company Insights
-- Data Quality Report
+- CSV Export
 
 ---
 
-## Author
+# 👨‍💻 Author
 
 **Ayush Jha**
 
-Bluestock Fintech Internship
+B.Tech CSE (AI & ML)
+
+MIT Academy of Engineering, Pune
+
+Bluestock Fintech – Data Analytics Internship
+
+---
+
+# 📄 License
+
+This project was developed for educational purposes as part of the Bluestock Fintech Internship.
