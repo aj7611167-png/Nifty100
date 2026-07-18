@@ -53,15 +53,18 @@ selected_sector = st.sidebar.selectbox(
 )
 
 # -------------------------
-# Dynamic Slider Limits
+# Slider Limits
 # -------------------------
 
-max_roe = float(df["return_on_equity_pct"].max())
-max_roce = float(df["roce_percentage"].max())
-max_debt = float(df["debt_to_equity"].max())
-max_quality = int(df["composite_quality_score"].max())
-min_cagr_value = float(df["revenue_cagr_5yr"].min())
-max_cagr_value = float(df["revenue_cagr_5yr"].max())
+roe_max = float(max(50.0, df["return_on_equity_pct"].max()))
+roce_max = float(max(60.0, df["roce_percentage"].max()))
+debt_max = float(max(5.0, df["debt_to_equity"].max()))
+
+quality_max = int(df["composite_quality_score"].max())
+quality_max = max(30, quality_max)
+
+cagr_min = float(df["revenue_cagr_5yr"].min())
+cagr_max = float(df["revenue_cagr_5yr"].max())
 
 # -------------------------
 # ROE
@@ -70,9 +73,9 @@ max_cagr_value = float(df["revenue_cagr_5yr"].max())
 min_roe = st.sidebar.slider(
     "Minimum ROE (%)",
     min_value=0.0,
-    max_value=round(max_roe),
+    max_value=roe_max,
     value=10.0,
-    step=1.0
+    step=1.0,
 )
 
 # -------------------------
@@ -82,21 +85,21 @@ min_roe = st.sidebar.slider(
 min_roce = st.sidebar.slider(
     "Minimum ROCE (%)",
     min_value=0.0,
-    max_value=round(max_roce),
+    max_value=roce_max,
     value=10.0,
-    step=1.0
+    step=1.0,
 )
 
 # -------------------------
-# Debt
+# Debt / Equity
 # -------------------------
 
 max_debt_filter = st.sidebar.slider(
     "Maximum Debt / Equity",
     min_value=0.0,
-    max_value=round(max_debt, 1),
-    value=min(2.0, round(max_debt, 1)),
-    step=0.1
+    max_value=debt_max,
+    value=2.0,
+    step=0.1,
 )
 
 # -------------------------
@@ -106,9 +109,9 @@ max_debt_filter = st.sidebar.slider(
 min_quality = st.sidebar.slider(
     "Minimum Quality Score",
     min_value=0,
-    max_value=max_quality,
-    value=max_quality // 2,
-    step=1
+    max_value=quality_max,
+    value=15,
+    step=1,
 )
 
 # -------------------------
@@ -117,10 +120,10 @@ min_quality = st.sidebar.slider(
 
 min_cagr = st.sidebar.slider(
     "Minimum Revenue CAGR (5Y)",
-    min_value=float(int(min_cagr_value)),
-    max_value=float(int(max_cagr_value)),
+    min_value=cagr_min,
+    max_value=cagr_max,
     value=0.0,
-    step=1.0
+    step=1.0,
 )
 
 # -------------------------
@@ -130,7 +133,7 @@ min_cagr = st.sidebar.slider(
 min_fcf = st.sidebar.number_input(
     "Minimum Free Cash Flow (Cr)",
     value=0.0,
-    step=100.0
+    step=100.0,
 )
 
 # =====================================================
@@ -221,7 +224,7 @@ display_df = filtered_df[
         "debt_to_equity",
         "free_cash_flow_cr",
         "revenue_cagr_5yr",
-        "composite_quality_score"
+        "composite_quality_score",
     ]
 ].copy()
 
@@ -236,12 +239,12 @@ display_df.rename(
         "revenue_cagr_5yr": "Revenue CAGR 5Y (%)",
         "composite_quality_score": "Quality Score",
     },
-    inplace=True
+    inplace=True,
 )
 
 display_df = display_df.sort_values(
     "Quality Score",
-    ascending=False
+    ascending=False,
 )
 
 st.write(f"### Total Companies Found: {len(display_df)}")
@@ -249,7 +252,7 @@ st.write(f"### Total Companies Found: {len(display_df)}")
 st.dataframe(
     display_df,
     width="stretch",
-    hide_index=True
+    hide_index=True,
 )
 
 # =====================================================
@@ -262,6 +265,6 @@ st.download_button(
     label="📥 Download Results as CSV",
     data=csv,
     file_name="nifty100_screener.csv",
-    mime="text/csv"
+    mime="text/csv",
 )
 
