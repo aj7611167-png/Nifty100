@@ -227,29 +227,50 @@ def get_dashboard_data():
     conn = get_connection()
 
     query = """
+    WITH latest_ratios AS (
+        SELECT *
+        FROM (
+            SELECT
+                r.*,
+                ROW_NUMBER() OVER (
+                    PARTITION BY r.company_id
+                    ORDER BY
+                        CAST(SUBSTR(r.year, -4) AS INTEGER) DESC,
+                        CASE
+                            WHEN SUBSTR(r.year, 1, 3) = 'Dec' THEN 3
+                            WHEN SUBSTR(r.year, 1, 3) = 'Sep' THEN 2
+                            WHEN SUBSTR(r.year, 1, 3) = 'Mar' THEN 1
+                            ELSE 0
+                        END DESC
+                ) AS rn
+            FROM financial_ratios r
+        )
+        WHERE rn = 1
+    )
+
     SELECT
         c.id,
         c.company_name,
         c.roe_percentage,
         c.roce_percentage,
-
         s.broad_sector,
         s.sub_sector,
-
-        r.year,
-        r.composite_quality_score,
-        r.debt_to_equity,
-        r.free_cash_flow_cr,
-        r.revenue_cagr_5yr,
-        r.return_on_equity_pct
+        lr.year,
+        lr.composite_quality_score,
+        lr.debt_to_equity,
+        lr.free_cash_flow_cr,
+        lr.revenue_cagr_5yr,
+        lr.return_on_equity_pct
 
     FROM companies c
 
-    LEFT JOIN financial_ratios r
-        ON c.id = r.company_id
+    LEFT JOIN latest_ratios lr
+        ON c.id = lr.company_id
 
     LEFT JOIN sectors s
         ON c.id = s.company_id
+
+    ORDER BY c.company_name;
     """
 
     df = pd.read_sql(query, conn)

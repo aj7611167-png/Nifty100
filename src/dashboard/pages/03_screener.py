@@ -17,10 +17,26 @@ st.write(
 # LOAD DATA
 # =====================================================
 
-df = get_dashboard_data()
+df = get_dashboard_data().copy()
 
 # =====================================================
-# FILTERS
+# CLEAN DATA
+# =====================================================
+
+numeric_cols = [
+    "return_on_equity_pct",
+    "roce_percentage",
+    "debt_to_equity",
+    "composite_quality_score",
+    "revenue_cagr_5yr",
+    "free_cash_flow_cr",
+]
+
+for col in numeric_cols:
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+# =====================================================
+# SIDEBAR FILTERS
 # =====================================================
 
 st.sidebar.header("Filters")
@@ -37,13 +53,24 @@ selected_sector = st.sidebar.selectbox(
 )
 
 # -------------------------
+# Dynamic Slider Limits
+# -------------------------
+
+max_roe = float(df["return_on_equity_pct"].max())
+max_roce = float(df["roce_percentage"].max())
+max_debt = float(df["debt_to_equity"].max())
+max_quality = int(df["composite_quality_score"].max())
+min_cagr_value = float(df["revenue_cagr_5yr"].min())
+max_cagr_value = float(df["revenue_cagr_5yr"].max())
+
+# -------------------------
 # ROE
 # -------------------------
 
 min_roe = st.sidebar.slider(
     "Minimum ROE (%)",
     min_value=0.0,
-    max_value=50.0,
+    max_value=round(max_roe),
     value=10.0,
     step=1.0
 )
@@ -55,20 +82,20 @@ min_roe = st.sidebar.slider(
 min_roce = st.sidebar.slider(
     "Minimum ROCE (%)",
     min_value=0.0,
-    max_value=60.0,
+    max_value=round(max_roce),
     value=10.0,
     step=1.0
 )
 
 # -------------------------
-# Debt to Equity
+# Debt
 # -------------------------
 
-max_debt = st.sidebar.slider(
-    "Maximum Debt/Equity",
+max_debt_filter = st.sidebar.slider(
+    "Maximum Debt / Equity",
     min_value=0.0,
-    max_value=5.0,
-    value=2.0,
+    max_value=round(max_debt, 1),
+    value=min(2.0, round(max_debt, 1)),
     step=0.1
 )
 
@@ -79,9 +106,9 @@ max_debt = st.sidebar.slider(
 min_quality = st.sidebar.slider(
     "Minimum Quality Score",
     min_value=0,
-    max_value=100,
-    value=50,
-    step=5
+    max_value=max_quality,
+    value=max_quality // 2,
+    step=1
 )
 
 # -------------------------
@@ -90,8 +117,8 @@ min_quality = st.sidebar.slider(
 
 min_cagr = st.sidebar.slider(
     "Minimum Revenue CAGR (5Y)",
-    min_value=-20.0,
-    max_value=50.0,
+    min_value=float(int(min_cagr_value)),
+    max_value=float(int(max_cagr_value)),
     value=0.0,
     step=1.0
 )
@@ -126,7 +153,7 @@ filtered_df = filtered_df[
 ]
 
 filtered_df = filtered_df[
-    filtered_df["debt_to_equity"] <= max_debt
+    filtered_df["debt_to_equity"] <= max_debt_filter
 ]
 
 filtered_df = filtered_df[
@@ -154,6 +181,16 @@ c1.metric(
     len(filtered_df)
 )
 
+if filtered_df.empty:
+
+    c2.metric("Average ROE", "N/A")
+    c3.metric("Average ROCE", "N/A")
+    c4.metric("Average Quality", "N/A")
+
+    st.warning("No companies match the selected filters.")
+
+    st.stop()
+
 c2.metric(
     "Average ROE",
     f"{filtered_df['return_on_equity_pct'].mean():.2f}%"
@@ -168,6 +205,10 @@ c4.metric(
     "Average Quality",
     f"{filtered_df['composite_quality_score'].mean():.1f}"
 )
+
+# =====================================================
+# TABLE
+# =====================================================
 
 st.subheader("📊 Filtered Companies")
 
@@ -184,17 +225,18 @@ display_df = filtered_df[
     ]
 ].copy()
 
-display_df = display_df.rename(
+display_df.rename(
     columns={
         "company_name": "Company",
         "broad_sector": "Sector",
         "return_on_equity_pct": "ROE (%)",
         "roce_percentage": "ROCE (%)",
-        "debt_to_equity": "Debt/Equity",
+        "debt_to_equity": "Debt / Equity",
         "free_cash_flow_cr": "Free Cash Flow (Cr)",
         "revenue_cagr_5yr": "Revenue CAGR 5Y (%)",
-        "composite_quality_score": "Quality Score"
-    }
+        "composite_quality_score": "Quality Score",
+    },
+    inplace=True
 )
 
 display_df = display_df.sort_values(
@@ -206,9 +248,13 @@ st.write(f"### Total Companies Found: {len(display_df)}")
 
 st.dataframe(
     display_df,
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
+
+# =====================================================
+# DOWNLOAD CSV
+# =====================================================
 
 csv = display_df.to_csv(index=False).encode("utf-8")
 
