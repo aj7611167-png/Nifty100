@@ -1,0 +1,670 @@
+company_id,type,rule_id,text,confidence_pct
+ABB,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+ABB,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ABB,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+ABB,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ABB,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ABB,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+ABB,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ABB,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+ABB,Con,CF,The company should continue improving financial performance across key metrics.,65
+ADANIENSOL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ADANIENSOL,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ADANIENSOL,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ADANIENSOL,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ADANIENSOL,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+ADANIENSOL,Con,C1,Debt-to-equity ratio of 2.93 is elevated and warrants monitoring.,90
+ADANIENSOL,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+ADANIENSOL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+ADANIENSOL,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ADANIENT,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ADANIENT,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+ADANIENT,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+ADANIENT,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ADANIENT,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+ADANIENT,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+ADANIENT,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+ADANIENT,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ADANIGREEN,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ADANIGREEN,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ADANIGREEN,Con,C1,Debt-to-equity ratio of 6.60 is elevated and warrants monitoring.,90
+ADANIGREEN,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+ADANIGREEN,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+ADANIGREEN,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ADANIPORTS,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ADANIPORTS,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ADANIPORTS,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ADANIPORTS,Con,CF,The company should continue improving financial performance across key metrics.,65
+ADANIPOWER,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+ADANIPOWER,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ADANIPOWER,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ADANIPOWER,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ADANIPOWER,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+AMBUJACEM,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+AMBUJACEM,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+AMBUJACEM,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+AMBUJACEM,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+AMBUJACEM,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+APOLLOHOSP,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+APOLLOHOSP,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+APOLLOHOSP,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+APOLLOHOSP,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+APOLLOHOSP,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+APOLLOHOSP,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+ASIANPAINT,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+ASIANPAINT,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ASIANPAINT,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+ASIANPAINT,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ASIANPAINT,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ASIANPAINT,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+ASIANPAINT,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ASIANPAINT,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+ASIANPAINT,Con,CF,The company should continue improving financial performance across key metrics.,65
+AXISBANK,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+AXISBANK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+AXISBANK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+AXISBANK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+AXISBANK,Con,C1,Debt-to-equity ratio of 8.25 is elevated and warrants monitoring.,90
+AXISBANK,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+AXISBANK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+BAJAJ-AUTO,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BAJAJ-AUTO,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BAJAJ-AUTO,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BAJAJ-AUTO,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BAJAJ-AUTO,Con,CF,The company should continue improving financial performance across key metrics.,65
+BAJAJFINSV,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BAJAJFINSV,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+BAJAJFINSV,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+BAJAJFINSV,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+BAJAJFINSV,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BAJAJFINSV,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BAJAJFINSV,Con,C1,Debt-to-equity ratio of 4.79 is elevated and warrants monitoring.,90
+BAJAJFINSV,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+BAJAJFINSV,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+BAJAJHLDNG,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BAJAJHLDNG,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+BAJAJHLDNG,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+BAJAJHLDNG,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BAJAJHLDNG,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BAJAJHLDNG,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BAJAJHLDNG,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BAJAJHLDNG,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+BAJAJHLDNG,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+BAJAJHLDNG,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+BAJFINANCE,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+BAJFINANCE,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+BAJFINANCE,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+BAJFINANCE,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BAJFINANCE,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BAJFINANCE,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BAJFINANCE,Con,C1,Debt-to-equity ratio of 3.82 is elevated and warrants monitoring.,90
+BAJFINANCE,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+BANKBARODA,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+BANKBARODA,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+BANKBARODA,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+BANKBARODA,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BANKBARODA,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BANKBARODA,Con,C1,Debt-to-equity ratio of 12.14 is elevated and warrants monitoring.,90
+BANKBARODA,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+BANKBARODA,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+BEL,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BEL,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BEL,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BEL,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+BHARTIARTL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BHARTIARTL,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+BHARTIARTL,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+BHARTIARTL,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BHARTIARTL,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BHARTIARTL,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BHARTIARTL,Con,C1,Debt-to-equity ratio of 2.61 is elevated and warrants monitoring.,90
+BHARTIARTL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+BHEL,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+BHEL,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+BHEL,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+BHEL,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+BHEL,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+BHEL,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+BHEL,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+BHEL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+BHEL,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+BOSCHLTD,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BOSCHLTD,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BOSCHLTD,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BOSCHLTD,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BOSCHLTD,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+BPCL,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BPCL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BPCL,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+BPCL,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BPCL,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BPCL,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+BPCL,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+BPCL,Con,CF,The company should continue improving financial performance across key metrics.,65
+BRITANNIA,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+BRITANNIA,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+BRITANNIA,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+BRITANNIA,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+BRITANNIA,Con,CF,The company should continue improving financial performance across key metrics.,65
+CANBK,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+CANBK,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+CANBK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+CANBK,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+CANBK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+CANBK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+CANBK,Con,C1,Debt-to-equity ratio of 14.87 is elevated and warrants monitoring.,90
+CANBK,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+CANBK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+CHOLAFIN,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+CHOLAFIN,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+CHOLAFIN,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+CHOLAFIN,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+CHOLAFIN,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+CHOLAFIN,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+CHOLAFIN,Con,C1,Debt-to-equity ratio of 6.86 is elevated and warrants monitoring.,90
+CHOLAFIN,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+CIPLA,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+CIPLA,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+CIPLA,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+CIPLA,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+CIPLA,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+CIPLA,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+CIPLA,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+CIPLA,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+CIPLA,Con,CF,The company should continue improving financial performance across key metrics.,65
+COALINDIA,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+COALINDIA,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+COALINDIA,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+COALINDIA,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+COALINDIA,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+COALINDIA,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+COALINDIA,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+COALINDIA,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+COALINDIA,Con,CF,The company should continue improving financial performance across key metrics.,65
+DABUR,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+DABUR,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+DABUR,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+DABUR,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+DABUR,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+DABUR,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+DABUR,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+DIVISLAB,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+DIVISLAB,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+DIVISLAB,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+DIVISLAB,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+DIVISLAB,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+DIVISLAB,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+DIVISLAB,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+DIVISLAB,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+DIVISLAB,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+DLF,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+DLF,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+DLF,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+DLF,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+DLF,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+DLF,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+DMART,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+DMART,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+DMART,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+DMART,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+DMART,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+DMART,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+DMART,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+DMART,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+DMART,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+DRREDDY,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+DRREDDY,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+DRREDDY,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+DRREDDY,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+DRREDDY,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+DRREDDY,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+DRREDDY,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+DRREDDY,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+DRREDDY,Con,CF,The company should continue improving financial performance across key metrics.,65
+EICHERMOT,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+EICHERMOT,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+EICHERMOT,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+EICHERMOT,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+EICHERMOT,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+EICHERMOT,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+EICHERMOT,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+EICHERMOT,Con,CF,The company should continue improving financial performance across key metrics.,65
+GAIL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+GAIL,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+GAIL,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+GAIL,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+GAIL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+GODREJCP,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+GODREJCP,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+GODREJCP,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+GODREJCP,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+GODREJCP,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+GODREJCP,Pro,PF,The company maintains an established business presence within its industry.,65
+GRASIM,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+GRASIM,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+GRASIM,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+GRASIM,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+GRASIM,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+HAL,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+HAL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HAL,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+HAL,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+HAL,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HAL,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HAL,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+HAL,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+HAL,Con,CF,The company should continue improving financial performance across key metrics.,65
+HAVELLS,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HAVELLS,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HAVELLS,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HAVELLS,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+HAVELLS,Con,CF,The company should continue improving financial performance across key metrics.,65
+HCLTECH,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+HCLTECH,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HCLTECH,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HCLTECH,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HCLTECH,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+HCLTECH,Con,CF,The company should continue improving financial performance across key metrics.,65
+HDFCBANK,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HDFCBANK,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+HDFCBANK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+HDFCBANK,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HDFCBANK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+HDFCBANK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+HDFCBANK,Con,C1,Debt-to-equity ratio of 6.81 is elevated and warrants monitoring.,90
+HDFCBANK,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+HDFCBANK,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+HDFCBANK,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+HDFCBANK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+HDFCLIFE,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+HDFCLIFE,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+HDFCLIFE,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HDFCLIFE,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+HDFCLIFE,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+HDFCLIFE,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+HDFCLIFE,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+HEROMOTOCO,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+HEROMOTOCO,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HEROMOTOCO,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+HEROMOTOCO,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HEROMOTOCO,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HEROMOTOCO,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+HEROMOTOCO,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+HEROMOTOCO,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+HEROMOTOCO,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+HEROMOTOCO,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+HINDALCO,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HINDALCO,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+HINDALCO,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HINDALCO,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HINDALCO,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+HINDALCO,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+HINDALCO,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+HINDUNILVR,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+HINDUNILVR,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+HINDUNILVR,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+HINDUNILVR,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+HINDUNILVR,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+HINDUNILVR,Con,CF,The company should continue improving financial performance across key metrics.,65
+ICICIBANK,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ICICIBANK,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ICICIBANK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+ICICIBANK,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ICICIBANK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+ICICIBANK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ICICIBANK,Con,C1,Debt-to-equity ratio of 6.45 is elevated and warrants monitoring.,90
+ICICIBANK,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+ICICIBANK,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+ICICIBANK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ICICIGI,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ICICIGI,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ICICIGI,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ICICIGI,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ICICIGI,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ICICIGI,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+ICICIGI,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+ICICIGI,Con,CF,The company should continue improving financial performance across key metrics.,65
+ICICIPRULI,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ICICIPRULI,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+ICICIPRULI,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ICICIPRULI,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ICICIPRULI,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+ICICIPRULI,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+ICICIPRULI,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+ICICIPRULI,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+ICICIPRULI,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+ICICIPRULI,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+INDIGO,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+INDIGO,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+INDIGO,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+INDIGO,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+INDIGO,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+INDIGO,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+INDIGO,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+INDIGO,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+INDIGO,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+INDIGO,Con,CF,The company should continue improving financial performance across key metrics.,65
+INDUSINDBK,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+INDUSINDBK,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+INDUSINDBK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+INDUSINDBK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+INDUSINDBK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+INDUSINDBK,Con,C1,Debt-to-equity ratio of 6.89 is elevated and warrants monitoring.,90
+INDUSINDBK,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+INDUSINDBK,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+INDUSINDBK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+INFY,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+INFY,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+INFY,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+INFY,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+INFY,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+INFY,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+INFY,Con,CF,The company should continue improving financial performance across key metrics.,65
+IOC,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+IOC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+IOC,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+IOC,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+IOC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+IOC,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+IOC,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+IOC,Con,CF,The company should continue improving financial performance across key metrics.,65
+IRCTC,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+IRCTC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+IRCTC,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+IRCTC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+IRCTC,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+IRCTC,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+IRCTC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+IRCTC,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+IRCTC,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+IRCTC,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+IRCTC,Con,CF,The company should continue improving financial performance across key metrics.,65
+IRFC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+IRFC,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+IRFC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+IRFC,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+IRFC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+IRFC,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+IRFC,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+IRFC,Con,C1,Debt-to-equity ratio of 8.38 is elevated and warrants monitoring.,90
+IRFC,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+IRFC,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+IRFC,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ITC,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+ITC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ITC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+ITC,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ITC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ITC,Con,CF,The company should continue improving financial performance across key metrics.,65
+JINDALSTEL,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+JINDALSTEL,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+JINDALSTEL,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+JINDALSTEL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+JINDALSTEL,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+JINDALSTEL,Pro,PF,The company maintains an established business presence within its industry.,65
+JIOFIN,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+JIOFIN,Pro,P3,Debt-free balance sheet provides financial flexibility and eliminates interest burden.,90
+JIOFIN,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+JIOFIN,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+JIOFIN,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+JIOFIN,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+JIOFIN,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+JSWENERGY,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+JSWENERGY,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+JSWENERGY,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+JSWENERGY,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+JSWENERGY,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+JSWENERGY,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+JSWENERGY,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+JSWENERGY,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+JSWENERGY,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+JSWSTEEL,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+JSWSTEEL,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+JSWSTEEL,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+JSWSTEEL,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+JSWSTEEL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+KOTAKBANK,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+KOTAKBANK,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+KOTAKBANK,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+KOTAKBANK,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+KOTAKBANK,Con,C1,Debt-to-equity ratio of 4.00 is elevated and warrants monitoring.,90
+KOTAKBANK,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+KOTAKBANK,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+KOTAKBANK,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+KOTAKBANK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+LICI,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+LICI,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+LICI,Pro,P3,Debt-free balance sheet provides financial flexibility and eliminates interest burden.,90
+LICI,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+LICI,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+LICI,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+LICI,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+LODHA,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+LODHA,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+LODHA,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+LODHA,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+LODHA,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+LODHA,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+LODHA,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+LODHA,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+LT,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+LT,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+LT,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+LT,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+LT,Con,CF,The company should continue improving financial performance across key metrics.,65
+LTIM,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+LTIM,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+LTIM,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+LTIM,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+LTIM,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+LTIM,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+LTIM,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+LTIM,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+LTIM,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+LTIM,Con,CF,The company should continue improving financial performance across key metrics.,65
+M&M,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+M&M,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+M&M,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+MARUTI,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+MARUTI,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+MARUTI,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+MARUTI,Con,CF,The company should continue improving financial performance across key metrics.,65
+MOTHERSON,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+MOTHERSON,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+MOTHERSON,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+MOTHERSON,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+MOTHERSON,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+MOTHERSON,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+NAUKRI,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+NAUKRI,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+NAUKRI,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+NAUKRI,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+NAUKRI,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+NAUKRI,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+NAUKRI,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+NAUKRI,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+NESTLEIND,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+NESTLEIND,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+NESTLEIND,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+NESTLEIND,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+NESTLEIND,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+NESTLEIND,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+NESTLEIND,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+NESTLEIND,Con,CF,The company should continue improving financial performance across key metrics.,65
+NHPC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+NHPC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+NHPC,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+NHPC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+NHPC,Con,C5,Revenue growth below 5% indicates weak business momentum.,80
+NHPC,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+NHPC,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+NTPC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+NTPC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+NTPC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+NTPC,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+NTPC,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+ONGC,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ONGC,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ONGC,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ONGC,Con,CF,The company should continue improving financial performance across key metrics.,65
+PFC,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+PFC,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+PFC,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+PFC,Con,C1,Debt-to-equity ratio of 8.52 is elevated and warrants monitoring.,90
+PFC,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+PFC,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+PFC,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+PIDILITIND,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+PIDILITIND,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+PIDILITIND,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+PIDILITIND,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+PIDILITIND,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+PIDILITIND,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+PIDILITIND,Con,CF,The company should continue improving financial performance across key metrics.,65
+PNB,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+PNB,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+PNB,Con,C1,Debt-to-equity ratio of 3.68 is elevated and warrants monitoring.,90
+PNB,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+PNB,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+POWERGRID,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+POWERGRID,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+POWERGRID,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+POWERGRID,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+RECLTD,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+RECLTD,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+RECLTD,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+RECLTD,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+RECLTD,Con,C1,Debt-to-equity ratio of 6.42 is elevated and warrants monitoring.,90
+RECLTD,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+RECLTD,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+RELIANCE,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+RELIANCE,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+RELIANCE,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+RELIANCE,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+SBILIFE,Pro,P3,Debt-free balance sheet provides financial flexibility and eliminates interest burden.,90
+SBILIFE,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+SBILIFE,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+SBILIFE,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+SBILIFE,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+SBILIFE,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+SBILIFE,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+SHREECEM,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+SHREECEM,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+SHREECEM,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+SHREECEM,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+SHREECEM,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+SHRIRAMFIN,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+SHRIRAMFIN,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+SHRIRAMFIN,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+SHRIRAMFIN,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+SHRIRAMFIN,Con,C1,Debt-to-equity ratio of 3.99 is elevated and warrants monitoring.,90
+SHRIRAMFIN,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+SHRIRAMFIN,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+SHRIRAMFIN,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+SIEMENS,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+SIEMENS,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+SIEMENS,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+SIEMENS,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+SIEMENS,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+SIEMENS,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+SIEMENS,Con,CF,The company should continue improving financial performance across key metrics.,65
+SUNPHARMA,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+SUNPHARMA,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+SUNPHARMA,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+SUNPHARMA,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+SUNPHARMA,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+SUNPHARMA,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+SUNPHARMA,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+SUNPHARMA,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+SUNPHARMA,Con,CF,The company should continue improving financial performance across key metrics.,65
+TATACONSUM,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TATACONSUM,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+TATACONSUM,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+TATACONSUM,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+TATACONSUM,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TATACONSUM,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+TATACONSUM,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+TATACONSUM,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+TATACONSUM,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+TATAMOTORS,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TATAMOTORS,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TATAMOTORS,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TATAMOTORS,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+TATAMOTORS,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+TATAPOWER,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TATAPOWER,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+TATAPOWER,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TATAPOWER,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+TATAPOWER,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+TATASTEEL,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TATASTEEL,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+TATASTEEL,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+TATASTEEL,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+TATASTEEL,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+TCS,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TCS,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TCS,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+TCS,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+TCS,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TCS,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+TCS,Con,CF,The company should continue improving financial performance across key metrics.,65
+TECHM,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TECHM,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+TECHM,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TECHM,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+TECHM,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+TECHM,Con,C4,Return on equity below 10% suggests inefficient capital utilization.,80
+TECHM,Con,C7,Dividend payout above 100% may not be sustainable over the long term.,85
+TECHM,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+TECHM,Con,C9,Earnings per share growth below 5% indicates weak earnings momentum.,80
+TECHM,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+TECHM,Con,C12,Weak quality score together with slow revenue growth indicates limited business strength.,85
+TITAN,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TITAN,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TITAN,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+TITAN,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+TITAN,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TITAN,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+TITAN,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+TITAN,Pro,P11,Revenue growth exceeding profit growth indicates stable operating expansion.,75
+TITAN,Con,CF,The company should continue improving financial performance across key metrics.,65
+TORNTPHARM,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TORNTPHARM,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TORNTPHARM,Pro,P5,Operating profit margin above 25% indicates strong pricing power and cost discipline.,80
+TORNTPHARM,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+TORNTPHARM,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TORNTPHARM,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+TORNTPHARM,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+TORNTPHARM,Con,CF,The company should continue improving financial performance across key metrics.,65
+TRENT,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TRENT,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+TRENT,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+TRENT,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+TRENT,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+TRENT,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+TRENT,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+TRENT,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+TRENT,Con,CF,The company should continue improving financial performance across key metrics.,65
+TVSMOTOR,Pro,P1,Consistently high return on equity above 20% demonstrates exceptional capital efficiency.,90
+TVSMOTOR,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+TVSMOTOR,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+TVSMOTOR,Con,C1,Debt-to-equity ratio of 3.83 is elevated and warrants monitoring.,90
+TVSMOTOR,Con,C2,Negative free cash flow raises concern about cash generation quality.,85
+TVSMOTOR,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
+ULTRACEMCO,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+ULTRACEMCO,Pro,P6,Net profit compounding above 20% over five years creates significant shareholder value.,90
+ULTRACEMCO,Pro,P7,Very high interest coverage reflects negligible financial stress from debt servicing.,85
+ULTRACEMCO,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+ULTRACEMCO,Pro,P9,Earnings per share growing above 15% CAGR indicates strong earnings quality.,85
+ULTRACEMCO,Pro,P10,High composite quality score reflects consistently strong financial performance.,80
+ULTRACEMCO,Pro,P12,Strong balance sheet with low leverage supports sustainable long-term growth.,90
+ULTRACEMCO,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+UNIONBANK,Pro,P2,Strong free cash flow generation indicates healthy business fundamentals.,85
+UNIONBANK,Pro,P4,Revenue growing above 15% CAGR reflects strong business momentum.,85
+UNIONBANK,Pro,P8,Consistent dividend payout backed by positive free cash flow reflects healthy shareholder returns.,80
+UNIONBANK,Con,C1,Debt-to-equity ratio of 12.82 is elevated and warrants monitoring.,90
+UNIONBANK,Con,C3,Operating margin below 10% indicates weak operating profitability.,80
+UNIONBANK,Con,C6,Interest coverage below 1.5x indicates elevated debt servicing risk.,90
+UNIONBANK,Con,C8,Low composite quality score reflects weak overall financial quality.,85
+UNIONBANK,Con,C10,Return on equity below 15% suggests the business is generating modest shareholder returns.,75
+UNIONBANK,Con,C11,High leverage combined with weak interest coverage increases financial risk.,90
