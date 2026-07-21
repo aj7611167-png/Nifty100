@@ -2,7 +2,7 @@
 
 A complete financial analytics platform developed as part of the **Bluestock Fintech Data Analytics Internship**.
 
-The project collects, validates, stores, analyzes, and visualizes financial data of Nifty100 companies using Python, SQLite, and Streamlit.
+The project collects, validates, stores, analyzes, and visualizes financial data of Nifty100 companies using **Python, SQLite, Pandas, and Streamlit**.
 
 ---
 
@@ -10,7 +10,7 @@ The project collects, validates, stores, analyzes, and visualizes financial data
 
 ## Sprint 1 – Data Foundation
 
-- Environment setup
+- Environment Setup
 - ETL Pipeline
 - Data Cleaning
 - Data Normalization
@@ -36,17 +36,17 @@ The project collects, validates, stores, analyzes, and visualizes financial data
 
 - Stock Screener Engine
 - Peer Group Analysis
-- Peer Comparison Excel Report
+- Peer Comparison Reports
 - Radar Chart Generation
 - Company Insights
-- Data Quality Report
-- Excel Export
+- Data Quality Reports
+- Excel Report Generation
 
 ---
 
 ## Sprint 4 – Interactive Dashboard
 
-### Dashboard Home
+### 🏠 Dashboard Home
 
 - Overall Market Summary
 - Total Companies
@@ -54,7 +54,7 @@ The project collects, validates, stores, analyzes, and visualizes financial data
 - Financial KPIs
 - Interactive Charts
 
-### Company Profile
+### 🏢 Company Profile
 
 - Company Information
 - ROE & ROCE
@@ -63,20 +63,41 @@ The project collects, validates, stores, analyzes, and visualizes financial data
 - Revenue CAGR
 - Free Cash Flow
 - Sales vs Net Profit
-- Balance Sheet Charts
-- Cash Flow Charts
-- Pros & Cons
+- Balance Sheet Visualization
+- Cash Flow Visualization
+- AI Generated Pros & Cons
 
-### Stock Screener
+### 🔍 Stock Screener
 
 - Sector Filter
 - ROE Filter
 - ROCE Filter
-- Debt/Equity Filter
+- Debt-to-Equity Filter
 - Quality Score Filter
 - Revenue CAGR Filter
 - Free Cash Flow Filter
-- Download Results as CSV
+- CSV Export
+
+---
+
+## Sprint 5 – Profitability Intelligence
+
+- Operating Margin Analysis
+- Net Profit Margin Analysis
+- Gross Profit Margin Analysis
+- EBITDA Margin Analysis
+- Return on Equity (ROE) Quality
+- Return on Assets (ROA) Quality
+- Return on Capital Employed (ROCE) Quality
+- Interest Coverage Analysis
+- PAT Growth Analysis
+- EPS Growth Analysis
+- Composite Profitability Score
+- Earnings Quality Score
+- Profitability Ranking
+- Top & Bottom Company Ranking
+- Excel Report Generation
+- CSV Summary Report Export
 
 ---
 
@@ -97,7 +118,7 @@ The project collects, validates, stores, analyzes, and visualizes financial data
 
 # 📁 Project Structure
 
-```
+```text
 nifty100-project/
 │
 ├── config/
@@ -105,13 +126,23 @@ nifty100-project/
 ├── docs/
 ├── output/
 ├── reports/
+│
 ├── src/
+│   │
 │   ├── analytics/
+│   │     ├── financial_analytics.py
+│   │     └── profitability_kpis.py
+│   │
 │   ├── dashboard/
-│   │   ├── app.py
-│   │   ├── pages/
-│   │   └── utils/
-│   └── data/
+│   │     ├── app.py
+│   │     ├── pages/
+│   │     └── utils/
+│   │
+│   ├── data/
+│   │
+│   └── nlp/
+│         ├── parser.py
+│         └── pros_cons_generator.py
 │
 ├── tests/
 ├── requirements.txt
@@ -135,15 +166,15 @@ Move into the project
 cd nifty100-project
 ```
 
-Create virtual environment
+Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate virtual environment
+Activate the virtual environment
 
-### macOS/Linux
+### macOS / Linux
 
 ```bash
 source venv/bin/activate
@@ -155,7 +186,7 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-Install dependencies
+Install all dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -165,13 +196,13 @@ pip install -r requirements.txt
 
 # ▶ Running the Dashboard
 
-Launch Streamlit Dashboard
+Launch the Streamlit dashboard
 
 ```bash
 streamlit run src/dashboard/app.py
 ```
 
-The dashboard opens automatically in your browser.
+The dashboard will automatically open in your browser.
 
 ---
 
@@ -180,40 +211,64 @@ The dashboard opens automatically in your browser.
 ## 🏠 Home Dashboard
 
 - Company Summary
-- Financial Overview
+- Market Overview
 - Sector Analysis
+- Financial KPIs
+- Interactive Charts
 
 ---
 
 ## 🏢 Company Profile
 
 - Company Information
-- Financial Metrics
-- Sales & Profit Charts
-- Balance Sheet
-- Cash Flow
-- Pros & Cons
+- Financial Ratios
+- Sales & Profit Trends
+- Balance Sheet Analysis
+- Cash Flow Analysis
+- AI Generated Pros & Cons
 
 ---
 
-## 🔎 Stock Screener
+## 🔍 Stock Screener
 
 - Apply Financial Filters
-- Interactive Results
+- Interactive Search Results
 - CSV Download
+
+---
+
+# 📈 Profitability Intelligence Reports
+
+Sprint 5 generates the following reports:
+
+- Profitability Intelligence Excel Report
+- Profitability Summary CSV
+- Operating Margin Analysis
+- Net Profit Margin Analysis
+- Gross Profit Margin Analysis
+- EBITDA Margin Analysis
+- ROE / ROA / ROCE Quality Analysis
+- Interest Coverage Analysis
+- PAT Growth Analysis
+- EPS Growth Analysis
+- Composite Profitability Score
+- Earnings Quality Score
+- Profitability Ranking
 
 ---
 
 # 📦 Outputs
 
 - SQLite Database
-- Financial Analytics
-- Dashboard
+- Financial Analytics Reports
+- Interactive Dashboard
 - Company Profiles
 - Stock Screener
 - Peer Comparison Reports
+- Profitability Intelligence Reports
+- Excel Reports
+- CSV Summary Reports
 - Validation Reports
-- CSV Export
 
 ---
 
@@ -221,7 +276,7 @@ The dashboard opens automatically in your browser.
 
 **Ayush Jha**
 
-B.Tech CSE (AI & ML)
+B.Tech Computer Science & Engineering (AI & ML)
 
 MIT Academy of Engineering, Pune
 
@@ -231,4 +286,4 @@ Bluestock Fintech – Data Analytics Internship
 
 # 📄 License
 
-This project was developed for educational purposes as part of the Bluestock Fintech Internship.
+This project was developed for educational purposes as part of the Bluestock Fintech Data Analytics Internship.
