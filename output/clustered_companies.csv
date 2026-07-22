@@ -1,0 +1,93 @@
+company_id,cluster_id,cluster_name,broad_sector,distance_from_centroid
+ADANIENT,0,Emerging Growth,Industrials,1.7327
+BHARTIARTL,0,Emerging Growth,Communication Services,1.7073
+CIPLA,0,Emerging Growth,Healthcare,3.0644
+LODHA,0,Emerging Growth,Real Estate,1.8322
+TATASTEEL,0,Emerging Growth,Materials,1.3251
+BEL,1,High-Quality Compounders,Industrials,0.8684
+BRITANNIA,1,High-Quality Compounders,Consumer Staples,1.7932
+HAL,1,High-Quality Compounders,Industrials,0.9316
+INDIGO,1,High-Quality Compounders,Consumer Discretionary,2.0614
+LT,1,High-Quality Compounders,Industrials,0.8176
+NESTLEIND,1,High-Quality Compounders,Consumer Staples,1.1268
+PNB,1,High-Quality Compounders,Financials,1.9809
+ABB,2,Stable Performers,Industrials,0.8627
+ADANIENSOL,2,Stable Performers,Energy,1.4469
+ADANIPORTS,2,Stable Performers,Industrials,1.0544
+ADANIPOWER,2,Stable Performers,Energy,1.6387
+AMBUJACEM,2,Stable Performers,Materials,1.0398
+APOLLOHOSP,2,Stable Performers,Healthcare,0.6735
+ASIANPAINT,2,Stable Performers,Materials,0.6587
+BAJAJ-AUTO,2,Stable Performers,Consumer Discretionary,0.7622
+BHEL,2,Stable Performers,Industrials,2.5288
+BOSCHLTD,2,Stable Performers,Consumer Discretionary,0.8851
+BPCL,2,Stable Performers,Energy,0.9933
+COALINDIA,2,Stable Performers,Materials,2.0523
+DABUR,2,Stable Performers,Consumer Staples,0.7569
+DIVISLAB,2,Stable Performers,Healthcare,0.734
+DLF,2,Stable Performers,Real Estate,2.3998
+DMART,2,Stable Performers,Consumer Discretionary,1.6057
+DRREDDY,2,Stable Performers,Healthcare,0.9013
+EICHERMOT,2,Stable Performers,Consumer Discretionary,0.3431
+GAIL,2,Stable Performers,Energy,0.5548
+GODREJCP,2,Stable Performers,Consumer Staples,1.5417
+GRASIM,2,Stable Performers,Industrials,0.5367
+HAVELLS,2,Stable Performers,Industrials,0.7869
+HCLTECH,2,Stable Performers,Information Technology,0.5236
+HDFCLIFE,2,Stable Performers,Financials,2.2212
+HEROMOTOCO,2,Stable Performers,Consumer Discretionary,2.0019
+HINDALCO,2,Stable Performers,Materials,1.6082
+HINDUNILVR,2,Stable Performers,Consumer Staples,1.5794
+ICICIGI,2,Stable Performers,Financials,1.698
+INFY,2,Stable Performers,Information Technology,0.6016
+IOC,2,Stable Performers,Energy,1.2856
+IRCTC,2,Stable Performers,Consumer Discretionary,1.3743
+ITC,2,Stable Performers,Consumer Staples,0.7571
+JINDALSTEL,2,Stable Performers,Materials,1.5104
+JIOFIN,2,Stable Performers,Financials,1.7096
+JSWENERGY,2,Stable Performers,Energy,1.2771
+JSWSTEEL,2,Stable Performers,Materials,0.7725
+LICI,2,Stable Performers,Financials,2.2012
+LTIM,2,Stable Performers,Information Technology,2.6372
+M&M,2,Stable Performers,Consumer Discretionary,0.8822
+MARUTI,2,Stable Performers,Consumer Discretionary,0.4756
+MOTHERSON,2,Stable Performers,Consumer Discretionary,0.7142
+NAUKRI,2,Stable Performers,Communication Services,1.1388
+NHPC,2,Stable Performers,Energy,1.6441
+NTPC,2,Stable Performers,Energy,0.4971
+ONGC,2,Stable Performers,Energy,0.6845
+PIDILITIND,2,Stable Performers,Materials,0.4905
+POWERGRID,2,Stable Performers,Energy,1.7292
+RELIANCE,2,Stable Performers,Energy,1.161
+SBILIFE,2,Stable Performers,Financials,1.93
+SHREECEM,2,Stable Performers,Materials,0.5796
+SHRIRAMFIN,2,Stable Performers,Financials,1.5265
+SIEMENS,2,Stable Performers,Industrials,1.2635
+SUNPHARMA,2,Stable Performers,Healthcare,0.9666
+TATACONSUM,2,Stable Performers,Consumer Staples,1.4971
+TATAMOTORS,2,Stable Performers,Consumer Discretionary,1.1551
+TATAPOWER,2,Stable Performers,Energy,0.8415
+TCS,2,Stable Performers,Information Technology,1.5192
+TECHM,2,Stable Performers,Information Technology,0.834
+TITAN,2,Stable Performers,Consumer Discretionary,1.7369
+TORNTPHARM,2,Stable Performers,Healthcare,0.6781
+TRENT,2,Stable Performers,Consumer Discretionary,3.6562
+TVSMOTOR,2,Stable Performers,Consumer Discretionary,1.2811
+ULTRACEMCO,2,Stable Performers,,0.9127
+ADANIGREEN,3,Financial Leaders,Energy,2.0147
+AXISBANK,3,Financial Leaders,Financials,1.5173
+BAJAJFINSV,3,Financial Leaders,Financials,1.2982
+BAJAJHLDNG,3,Financial Leaders,Financials,2.7489
+BAJFINANCE,3,Financial Leaders,Financials,1.1001
+BANKBARODA,3,Financial Leaders,Financials,2.045
+CHOLAFIN,3,Financial Leaders,Financials,0.3824
+INDUSINDBK,3,Financial Leaders,Financials,0.8049
+IRFC,3,Financial Leaders,Financials,0.7185
+PFC,3,Financial Leaders,Financials,2.0277
+RECLTD,3,Financial Leaders,Financials,1.0313
+CANBK,4,Distressed / Turnaround,Financials,2.4463
+HDFCBANK,4,Distressed / Turnaround,Financials,0.7411
+ICICIBANK,4,Distressed / Turnaround,Financials,0.5973
+ICICIPRULI,4,Distressed / Turnaround,Financials,2.6844
+KOTAKBANK,4,Distressed / Turnaround,Financials,1.4199
+UNIONBANK,4,Distressed / Turnaround,,2.7054

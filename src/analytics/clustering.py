@@ -298,6 +298,25 @@ def assign_cluster_names(df):
     return cluster_summary
 
 # =====================================================
+# EXPORT CLUSTER PROFILE
+# =====================================================
+
+def export_cluster_profile(cluster_profile):
+    """
+    Export cluster summary statistics.
+    """
+
+    cluster_profile.round(2).to_csv(
+        "reports/cluster_profile.csv"
+    )
+
+    print()
+    print("=" * 50)
+    print("CLUSTER PROFILE EXPORTED")
+    print("=" * 50)
+    print("Saved to reports/cluster_profile.csv")
+
+# =====================================================
 # CLUSTER NAME MAPPING
 # =====================================================
 
@@ -362,6 +381,39 @@ def export_cluster_labels(df):
 
     print(output.head())
 
+# =====================================================
+# EXPORT CLUSTERED COMPANIES
+# =====================================================
+
+def export_clustered_companies(df):
+    """
+    Export all companies with their assigned clusters.
+    """
+
+    output = df[
+        [
+            "company_id",
+            "cluster_id",
+            "cluster_name",
+            "broad_sector",
+            "distance_from_centroid"
+        ]
+    ].copy()
+
+    output = output.sort_values(
+        ["cluster_id", "company_id"]
+    )
+
+    output.to_csv(
+        "output/clustered_companies.csv",
+        index=False
+    )
+
+    print()
+    print("=" * 50)
+    print("CLUSTERED COMPANIES EXPORTED")
+    print("=" * 50)
+    print("Saved to output/clustered_companies.csv")
 
 # =====================================================
 # EXPORT CLUSTER METRICS
@@ -673,16 +725,17 @@ if __name__ == "__main__":
     # Cluster Profiling
     # -------------------------------------------------
 
-    cluster_profile = assign_cluster_names(
-        df
-    )
+    cluster_profile = assign_cluster_names(df)
 
+    export_cluster_profile(cluster_profile)
+
+    # Add descriptive cluster names
     df = add_cluster_names(df)
 
-    # -------------------------------------------------
-    # Export Cluster Labels
-    # -------------------------------------------------
+    # Export clustered companies
+    export_clustered_companies(df)
 
+    # Export cluster labels
     export_cluster_labels(df)
 
     # -------------------------------------------------
