@@ -1,9 +1,11 @@
 import sqlite3
 import numpy as np
 import pandas as pd
+import seaborn as sns
 
 import matplotlib.pyplot as plt
 
+from scipy.stats import zscore
 from sklearn.cluster import KMeans
 
 from sklearn.metrics import (
@@ -317,6 +319,67 @@ def export_cluster_profile(cluster_profile):
     print("Saved to reports/cluster_profile.csv")
 
 # =====================================================
+# OUTLIER REPORT
+# =====================================================
+
+def export_outlier_report(df):
+    """
+    Detect sector-wise outliers using Z-score and export report.
+    """
+
+    features = [
+        "return_on_equity_pct",
+        "debt_to_equity",
+        "revenue_cagr_5yr",
+        "fcf_cagr_5yr",
+        "operating_profit_margin_pct"
+    ]
+
+    temp = df.copy()
+
+    for feature in features:
+
+        temp[f"{feature}_z"] = (
+            temp
+            .groupby("broad_sector")[feature]
+            .transform(
+                lambda x: zscore(x, nan_policy="omit")
+            )
+        )
+
+    mask = (
+        temp[
+            [f"{f}_z" for f in features]
+        ]
+        .abs()
+        .gt(3)
+        .any(axis=1)
+    )
+
+    outliers = temp.loc[
+        mask,
+        [
+            "company_id",
+            "broad_sector"
+        ]
+        +
+        features
+    ].copy()
+
+    outliers.to_csv(
+        "output/outlier_report.csv",
+        index=False
+    )
+
+    print()
+
+    print("Saved to output/outlier_report.csv")
+
+    print()
+
+    print(outliers.head())
+
+# =====================================================
 # CLUSTER NAME MAPPING
 # =====================================================
 
@@ -626,6 +689,58 @@ def plot_cluster_scatter(df):
     plt.close()
 
 # =====================================================
+# CORRELATION HEATMAP
+# =====================================================
+
+def generate_correlation_heatmap(df):
+    """
+    Generate Pearson correlation heatmap for key KPIs.
+    """
+
+    columns = [
+        "return_on_equity_pct",
+        "debt_to_equity",
+        "revenue_cagr_5yr",
+        "fcf_cagr_5yr",
+        "operating_profit_margin_pct",
+        "net_profit_margin_pct",
+        "interest_coverage",
+        "asset_turnover",
+        "earnings_per_share",
+        "book_value_per_share"
+    ]
+
+    correlation = (
+        df[columns]
+        .corr(method="pearson")
+    )
+
+    plt.figure(figsize=(10, 8))
+
+    sns.heatmap(
+        correlation,
+        annot=True,
+        cmap="coolwarm",
+        fmt=".2f",
+        square=True
+    )
+
+    plt.title("Correlation Heatmap of Financial KPIs")
+
+    plt.tight_layout()
+
+    plt.savefig(
+        "reports/correlation_heatmap.png",
+        dpi=300
+    )
+
+    plt.close()
+
+    print()
+
+    print("Saved to reports/correlation_heatmap.png")
+
+# =====================================================
 # CLEAN FEATURES
 # =====================================================
 
@@ -653,6 +768,47 @@ def clean_features(df):
     )
 
     return df
+
+# =====================================================
+# PORTFOLIO STATISTICS
+# =====================================================
+
+def export_portfolio_stats(df):
+    """
+    Export percentile statistics for financial KPIs.
+    """
+
+    features = [
+        "return_on_equity_pct",
+        "debt_to_equity",
+        "revenue_cagr_5yr",
+        "fcf_cagr_5yr",
+        "operating_profit_margin_pct"
+    ]
+
+    stats = pd.DataFrame(index=features)
+
+    stats["P10"] = df[features].quantile(0.10)
+    stats["P25"] = df[features].quantile(0.25)
+    stats["P50"] = df[features].quantile(0.50)
+    stats["P75"] = df[features].quantile(0.75)
+    stats["P90"] = df[features].quantile(0.90)
+    stats["Mean"] = df[features].mean()
+    stats["Std"] = df[features].std()
+
+    stats = stats.round(2)
+
+    stats.to_csv(
+        "output/portfolio_stats.csv"
+    )
+
+    print()
+
+    print("Saved to output/portfolio_stats.csv")
+
+    print()
+
+    print(stats)
 
 # =====================================================
 # MAIN
@@ -735,6 +891,18 @@ if __name__ == "__main__":
     # Export clustered companies
     export_clustered_companies(df)
 
+    # -------------------------------------------------
+    # Outlier Report
+    # -------------------------------------------------
+
+    export_outlier_report(df)
+
+    # -------------------------------------------------
+    # Portfolio Statistics
+    # -------------------------------------------------
+
+    export_portfolio_stats(df)
+
     # Export cluster labels
     export_cluster_labels(df)
 
@@ -752,6 +920,8 @@ if __name__ == "__main__":
     # -------------------------------------------------
 
     plot_cluster_scatter(df)
+
+    generate_correlation_heatmap(df)
 
     # -------------------------------------------------
     # Dataset Preview
