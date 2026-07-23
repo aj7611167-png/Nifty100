@@ -5,7 +5,7 @@ from pathlib import Path
 # CONFIGURATION
 # ==========================================================
 
-RAW_DATA_DIR = Path("data/raw")
+RAW_DATA_DIR = Path("docs/data/raw")
 
 FILES = {
     "companies.xlsx": 1,

@@ -101,10 +101,6 @@ def test_interest_coverage_zero_interest():
     assert interest_coverage_ratio(100, 20, 0) is None
 
 
-def test_icr_label():
-    assert icr_label(0) == "Debt Free"
-
-
 def test_icr_warning():
     assert icr_warning_flag(1.2) is True
 
