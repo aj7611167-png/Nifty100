@@ -457,3 +457,51 @@ def download_tearsheet(ticker: str):
         media_type="application/pdf",
         filename=f"{ticker.upper()}_tearsheet.pdf"
     )
+
+@router.get(
+    "/{ticker}/peers/compare",
+    summary="Peer Comparison",
+    description="Compare a company against all companies in its peer group."
+)
+def compare_with_peers(ticker: str):
+
+    conn = get_connection()
+
+    query = """
+    SELECT
+        pg.peer_group_name,
+        c.id AS company_id,
+        c.company_name,
+        pg.is_benchmark,
+        pp.metric,
+        pp.value,
+        pp.percentile_rank,
+        pp.year
+    FROM peer_groups pg
+    JOIN companies c
+        ON c.id = pg.company_id
+    JOIN peer_percentiles pp
+        ON pp.company_id = pg.company_id
+       AND pp.peer_group_name = pg.peer_group_name
+    WHERE pg.peer_group_name = (
+        SELECT peer_group_name
+        FROM peer_groups
+        WHERE company_id = ?
+        LIMIT 1
+    )
+    ORDER BY
+        c.company_name,
+        pp.metric
+    """
+
+    rows = conn.execute(query, (ticker.upper(),)).fetchall()
+
+    conn.close()
+
+    if not rows:
+        raise HTTPException(
+            status_code=404,
+            detail="Company or peer group not found"
+        )
+
+    return [dict(row) for row in rows]

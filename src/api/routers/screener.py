@@ -46,12 +46,32 @@ def financial_screener(
 
         NULL AS composite_quality_score
     FROM companies c
-    JOIN financial_ratios fr
-        ON c.id = fr.company_id
+
+    JOIN (
+        SELECT *
+        FROM financial_ratios fr1
+        WHERE fr1.year = (
+            SELECT MAX(fr2.year)
+            FROM financial_ratios fr2
+            WHERE fr2.company_id = fr1.company_id
+        )
+    ) fr
+    ON c.id = fr.company_id
+
     LEFT JOIN sectors s
-        ON c.id = s.company_id
-    LEFT JOIN market_cap mc
-        ON c.id = mc.company_id
+    ON c.id = s.company_id
+
+    LEFT JOIN (
+        SELECT *
+        FROM market_cap mc1
+        WHERE mc1.year = (
+            SELECT MAX(mc2.year)
+            FROM market_cap mc2
+            WHERE mc2.company_id = mc1.company_id
+        )
+    ) mc
+    ON c.id = mc.company_id
+
     WHERE 1=1
     """
 

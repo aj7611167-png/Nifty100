@@ -1,1 +1,3218 @@
-{"openapi":"3.1.0","info":{"title":"NIFTY100 Financial Intelligence API","version":"1.0.0"},"paths":{"/":{"get":{"summary":"Root","operationId":"root__get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/health":{"get":{"tags":["Health"],"summary":"Health Check","description":"Check whether the API is running successfully.","operationId":"health_api_v1_health_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HealthResponse"}}}}}}},"/api/v1/companies":{"get":{"tags":["Companies"],"summary":"Get Companies","description":"Retrieve all companies with optional filtering by sector, market cap category, and search keyword.","operationId":"get_companies_api_v1_companies_get","parameters":[{"name":"sector","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Filter companies by broad sector","examples":["Healthcare"],"title":"Sector"},"description":"Filter companies by broad sector"},{"name":"market_cap_category","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Filter by market capitalization category","examples":["Large Cap"],"title":"Market Cap Category"},"description":"Filter by market capitalization category"},{"name":"search","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Search by company ID or company name","examples":["ABB"],"title":"Search"},"description":"Search by company ID or company name"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CompanyResponse"},"title":"Response Get Companies Api V1 Companies Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}":{"get":{"tags":["Companies"],"summary":"Company Profile","description":"Returns full company profile with latest financial ratios.","operationId":"get_company_profile_api_v1_companies__ticker__get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/CompanyProfile"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}/pl":{"get":{"tags":["Companies"],"summary":"Profit & Loss History","description":"Returns Profit & Loss history for a company.","operationId":"get_profit_and_loss_api_v1_companies__ticker__pl_get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}},{"name":"from_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Start year (e.g. Mar 2019)","title":"From Year"},"description":"Start year (e.g. Mar 2019)"},{"name":"to_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"End year (e.g. Mar 2024)","title":"To Year"},"description":"End year (e.g. Mar 2024)"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/ProfitAndLossResponse"},"title":"Response Get Profit And Loss Api V1 Companies  Ticker  Pl Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}/bs":{"get":{"tags":["Companies"],"summary":"Balance Sheet History","description":"Returns Balance Sheet history for a company.","operationId":"get_balance_sheet_api_v1_companies__ticker__bs_get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}},{"name":"from_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Start year (e.g. Mar 2019)","title":"From Year"},"description":"Start year (e.g. Mar 2019)"},{"name":"to_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"End year (e.g. Mar 2024)","title":"To Year"},"description":"End year (e.g. Mar 2024)"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/BalanceSheetResponse"},"title":"Response Get Balance Sheet Api V1 Companies  Ticker  Bs Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}/cashflow":{"get":{"tags":["Companies"],"summary":"Cash Flow History","description":"Returns Cash Flow history for a company.","operationId":"get_cashflow_api_v1_companies__ticker__cashflow_get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}},{"name":"from_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Start year (e.g. Mar 2019)","title":"From Year"},"description":"Start year (e.g. Mar 2019)"},{"name":"to_year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"End year (e.g. Mar 2024)","title":"To Year"},"description":"End year (e.g. Mar 2024)"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/CashflowResponse"},"title":"Response Get Cashflow Api V1 Companies  Ticker  Cashflow Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}/ratios":{"get":{"tags":["Companies"],"summary":"Financial Ratios","description":"Returns computed financial ratios for a company. Optionally filter by year.","operationId":"get_financial_ratios_api_v1_companies__ticker__ratios_get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}},{"name":"year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Return only a specific year (e.g. Mar 2024)","title":"Year"},"description":"Return only a specific year (e.g. Mar 2024)"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/src__api__schemas__ratios__FinancialRatioResponse"},"title":"Response Get Financial Ratios Api V1 Companies  Ticker  Ratios Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/companies/{ticker}/tearsheet":{"get":{"tags":["Companies"],"summary":"Download Company Tearsheet","description":"Returns the pre-generated PDF tearsheet for a company.","operationId":"download_tearsheet_api_v1_companies__ticker__tearsheet_get","parameters":[{"name":"ticker","in":"path","required":true,"schema":{"type":"string","title":"Ticker"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/screener":{"get":{"tags":["Screener"],"summary":"Financial Screener","description":"Screen companies using financial filters.","operationId":"financial_screener_api_v1_screener_get","parameters":[{"name":"min_roe","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Min Roe"}},{"name":"max_de","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Max De"}},{"name":"min_fcf","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Min Fcf"}},{"name":"sector","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sector"}},{"name":"min_rev_cagr_5yr","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Min Rev Cagr 5Yr"}},{"name":"min_pat_cagr_5yr","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Min Pat Cagr 5Yr"}},{"name":"max_pe","in":"query","required":false,"schema":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Max Pe"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/ScreenerResponse"},"title":"Response Financial Screener Api V1 Screener Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/sectors":{"get":{"summary":"Sectors","operationId":"sectors_api_v1_sectors_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/peers":{"get":{"tags":["Peers"],"summary":"Peers","operationId":"peers_api_v1_peers_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/market-cap":{"get":{"tags":["Valuation"],"summary":"Get Market Cap","operationId":"get_market_cap_api_v1_market_cap_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/portfolio/stats":{"get":{"summary":"Portfolio","operationId":"portfolio_api_v1_portfolio_stats_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/documents":{"get":{"tags":["Documents"],"summary":"Get Annual Reports","operationId":"get_documents_api_v1_documents_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/api/v1/financial-ratios":{"get":{"tags":["Financial Ratios"],"summary":"Get Financial Ratios","description":"Retrieve financial ratios with optional filtering by company and year.","operationId":"get_financial_ratios_api_v1_financial_ratios_get","parameters":[{"name":"company_id","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Filter by company ID","title":"Company Id"},"description":"Filter by company ID"},{"name":"year","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"description":"Filter by financial year","title":"Year"},"description":"Filter by financial year"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/src__api__schemas__financial_ratio__FinancialRatioResponse"},"title":"Response Get Financial Ratios Api V1 Financial Ratios Get"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-roe":{"get":{"tags":["Analytics"],"summary":"Top Roe","operationId":"top_roe_api_v1_analytics_top_roe_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-revenue-cagr":{"get":{"tags":["Analytics"],"summary":"Top Revenue Cagr","operationId":"top_revenue_cagr_api_v1_analytics_top_revenue_cagr_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-quality-score":{"get":{"tags":["Analytics"],"summary":"Top Quality Score","operationId":"top_quality_score_api_v1_analytics_top_quality_score_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-eps-cagr":{"get":{"tags":["Analytics"],"summary":"Top Eps Cagr","operationId":"top_eps_cagr_api_v1_analytics_top_eps_cagr_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-pat-cagr":{"get":{"tags":["Analytics"],"summary":"Top Pat Cagr","operationId":"top_pat_cagr_api_v1_analytics_top_pat_cagr_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-free-cash-flow":{"get":{"tags":["Analytics"],"summary":"Top Free Cash Flow","operationId":"top_free_cash_flow_api_v1_analytics_top_free_cash_flow_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-dividend-payout":{"get":{"tags":["Analytics"],"summary":"Top Dividend Payout","operationId":"top_dividend_payout_api_v1_analytics_top_dividend_payout_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-growth-stocks":{"get":{"tags":["Analytics"],"summary":"Top Growth Stocks","operationId":"top_growth_stocks_api_v1_analytics_top_growth_stocks_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-net-profit-margin":{"get":{"tags":["Analytics"],"summary":"Top Net Profit Margin","operationId":"top_net_profit_margin_api_v1_analytics_top_net_profit_margin_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/top-operating-profit-margin":{"get":{"tags":["Analytics"],"summary":"Top Operating Profit Margin","operationId":"top_operating_profit_margin_api_v1_analytics_top_operating_profit_margin_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/company-scorecard":{"get":{"tags":["Analytics"],"summary":"Company Scorecard","operationId":"company_scorecard_api_v1_analytics_company_scorecard_get","parameters":[{"name":"company_id","in":"query","required":true,"schema":{"type":"string","description":"Company ID (Example: ABB)","title":"Company Id"},"description":"Company ID (Example: ABB)"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/compare":{"get":{"tags":["Analytics"],"summary":"Compare Companies","operationId":"compare_companies_api_v1_analytics_compare_get","parameters":[{"name":"company1","in":"query","required":true,"schema":{"type":"string","description":"First company ID","title":"Company1"},"description":"First company ID"},{"name":"company2","in":"query","required":true,"schema":{"type":"string","description":"Second company ID","title":"Company2"},"description":"Second company ID"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/rankings":{"get":{"tags":["Analytics"],"summary":"Rankings","operationId":"rankings_api_v1_analytics_rankings_get","parameters":[{"name":"metric","in":"query","required":true,"schema":{"type":"string","description":"Metric to rank by","title":"Metric"},"description":"Metric to rank by"},{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/analytics/screen-stocks":{"get":{"tags":["Analytics"],"summary":"Screen Stocks","operationId":"screen_stocks_api_v1_analytics_screen_stocks_get","parameters":[{"name":"min_roe","in":"query","required":false,"schema":{"type":"number","description":"Minimum Return on Equity (%)","default":20,"title":"Min Roe"},"description":"Minimum Return on Equity (%)"},{"name":"max_debt_to_equity","in":"query","required":false,"schema":{"type":"number","description":"Maximum Debt to Equity","default":0.5,"title":"Max Debt To Equity"},"description":"Maximum Debt to Equity"},{"name":"min_quality_score","in":"query","required":false,"schema":{"type":"integer","description":"Minimum Composite Quality Score","default":20,"title":"Min Quality Score"},"description":"Minimum Composite Quality Score"},{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/risk/top-debt-to-equity":{"get":{"tags":["Risk"],"summary":"Top Debt To Equity","operationId":"top_debt_to_equity_api_v1_risk_top_debt_to_equity_get","parameters":[{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/risk/low-debt-companies":{"get":{"tags":["Risk"],"summary":"Low Debt Companies","operationId":"low_debt_companies_api_v1_risk_low_debt_companies_get","parameters":[{"name":"max_debt_to_equity","in":"query","required":false,"schema":{"type":"number","minimum":0,"description":"Maximum Debt to Equity","default":0.5,"title":"Max Debt To Equity"},"description":"Maximum Debt to Equity"},{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/api/v1/risk/high-roe-low-debt":{"get":{"tags":["Risk"],"summary":"High Roe Low Debt","operationId":"high_roe_low_debt_api_v1_risk_high_roe_low_debt_get","parameters":[{"name":"min_roe","in":"query","required":false,"schema":{"type":"number","minimum":0,"description":"Minimum Return on Equity (%)","default":20,"title":"Min Roe"},"description":"Minimum Return on Equity (%)"},{"name":"max_debt_to_equity","in":"query","required":false,"schema":{"type":"number","minimum":0,"description":"Maximum Debt to Equity","default":0.5,"title":"Max Debt To Equity"},"description":"Maximum Debt to Equity"},{"name":"limit","in":"query","required":false,"schema":{"type":"integer","maximum":100,"minimum":1,"description":"Number of companies to return","default":10,"title":"Limit"},"description":"Number of companies to return"}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"BalanceSheetResponse":{"properties":{"year":{"type":"string","title":"Year"},"equity_capital":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Equity Capital"},"reserves":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Reserves"},"borrowings":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Borrowings"},"other_liabilities":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Other Liabilities"},"total_liabilities":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Total Liabilities"},"fixed_assets":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Fixed Assets"},"cwip":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Cwip"},"investments":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Investments"},"other_asset":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Other Asset"},"total_assets":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Total Assets"}},"type":"object","required":["year","equity_capital","reserves","borrowings","other_liabilities","total_liabilities","fixed_assets","cwip","investments","other_asset","total_assets"],"title":"BalanceSheetResponse"},"CashflowResponse":{"properties":{"year":{"type":"string","title":"Year"},"operating_activity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Operating Activity"},"investing_activity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Investing Activity"},"financing_activity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Financing Activity"},"net_cash_flow":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Net Cash Flow"}},"type":"object","required":["year","operating_activity","investing_activity","financing_activity","net_cash_flow"],"title":"CashflowResponse"},"CompanyProfile":{"properties":{"id":{"type":"string","title":"Id"},"company_logo":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Company Logo"},"company_name":{"type":"string","title":"Company Name"},"chart_link":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Chart Link"},"about_company":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"About Company"},"website":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Website"},"nse_profile":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Nse Profile"},"bse_profile":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Bse Profile"},"face_value":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Face Value"},"book_value":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Book Value"},"roe_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Roe Percentage"},"roce_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Roce Percentage"},"broad_sector":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Broad Sector"},"sub_sector":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Sector"},"market_cap_category":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Market Cap Category"},"year":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Year"},"return_on_equity_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Return On Equity Pct"},"debt_to_equity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Debt To Equity"},"operating_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Operating Profit Margin Pct"},"net_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Net Profit Margin Pct"},"revenue_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Revenue Cagr 5Yr"},"pat_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Pat Cagr 5Yr"},"eps_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Eps Cagr 5Yr"},"composite_quality_score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Composite Quality Score"}},"type":"object","required":["id","company_logo","company_name","chart_link","about_company","website","nse_profile","bse_profile","face_value","book_value","roe_percentage","roce_percentage","broad_sector","sub_sector","market_cap_category","year","return_on_equity_pct","debt_to_equity","operating_profit_margin_pct","net_profit_margin_pct","revenue_cagr_5yr","pat_cagr_5yr","eps_cagr_5yr","composite_quality_score"],"title":"CompanyProfile"},"CompanyResponse":{"properties":{"id":{"type":"string","title":"Id"},"company_logo":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Company Logo"},"company_name":{"type":"string","title":"Company Name"},"chart_link":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Chart Link"},"about_company":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"About Company"},"website":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Website"},"face_value":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Face Value"},"book_value":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Book Value"},"roe_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Roe Percentage"},"roce_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Roce Percentage"},"broad_sector":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Broad Sector"},"sub_sector":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Sub Sector"},"market_cap_category":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Market Cap Category"}},"type":"object","required":["id","company_logo","company_name","chart_link","about_company","website","face_value","book_value","roe_percentage","roce_percentage","broad_sector","sub_sector","market_cap_category"],"title":"CompanyResponse"},"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},"HealthResponse":{"properties":{"status":{"type":"string","title":"Status"},"version":{"type":"string","title":"Version"}},"type":"object","required":["status","version"],"title":"HealthResponse"},"ProfitAndLossResponse":{"properties":{"year":{"type":"string","title":"Year"},"sales":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Sales"},"expenses":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Expenses"},"operating_profit":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Operating Profit"},"opm_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Opm Percentage"},"other_income":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Other Income"},"interest":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Interest"},"depreciation":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Depreciation"},"profit_before_tax":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Profit Before Tax"},"tax_percentage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Tax Percentage"},"net_profit":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Net Profit"},"eps":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Eps"},"dividend_payout":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Dividend Payout"}},"type":"object","required":["year","sales","expenses","operating_profit","opm_percentage","other_income","interest","depreciation","profit_before_tax","tax_percentage","net_profit","eps","dividend_payout"],"title":"ProfitAndLossResponse"},"ScreenerResponse":{"properties":{"id":{"type":"string","title":"Id"},"company_name":{"type":"string","title":"Company Name"},"broad_sector":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Broad Sector"},"roe":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Roe"},"debt_to_equity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Debt To Equity"},"free_cash_flow":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Free Cash Flow"},"revenue_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Revenue Cagr 5Yr"},"pat_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Pat Cagr 5Yr"},"pe_ratio":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Pe Ratio"},"composite_quality_score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Composite Quality Score"}},"type":"object","required":["id","company_name","broad_sector","roe","debt_to_equity","free_cash_flow","revenue_cagr_5yr","pat_cagr_5yr","pe_ratio","composite_quality_score"],"title":"ScreenerResponse"},"ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"},"input":{"title":"Input"},"ctx":{"type":"object","title":"Context"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"src__api__schemas__financial_ratio__FinancialRatioResponse":{"properties":{"company_id":{"type":"string","title":"Company Id"},"year":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Year"},"net_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Net Profit Margin Pct"},"operating_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Operating Profit Margin Pct"},"return_on_equity_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Return On Equity Pct"},"debt_to_equity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Debt To Equity"},"interest_coverage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Interest Coverage"},"asset_turnover":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Asset Turnover"},"free_cash_flow_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Free Cash Flow Cr"},"capex_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Capex Cr"},"earnings_per_share":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Earnings Per Share"},"book_value_per_share":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Book Value Per Share"},"dividend_payout_ratio_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Dividend Payout Ratio Pct"},"total_debt_cr":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Total Debt Cr"},"cash_from_operations_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Cash From Operations Cr"},"revenue_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Revenue Cagr 5Yr"},"revenue_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Revenue Cagr 5Yr Flag"},"pat_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Pat Cagr 5Yr"},"pat_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Pat Cagr 5Yr Flag"},"eps_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Eps Cagr 5Yr"},"eps_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Eps Cagr 5Yr Flag"},"composite_quality_score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Composite Quality Score"}},"type":"object","required":["company_id","year","net_profit_margin_pct","operating_profit_margin_pct","return_on_equity_pct","debt_to_equity","interest_coverage","asset_turnover","free_cash_flow_cr","capex_cr","earnings_per_share","book_value_per_share","dividend_payout_ratio_pct","total_debt_cr","cash_from_operations_cr","revenue_cagr_5yr","revenue_cagr_5yr_flag","pat_cagr_5yr","pat_cagr_5yr_flag","eps_cagr_5yr","eps_cagr_5yr_flag","composite_quality_score"],"title":"FinancialRatioResponse"},"src__api__schemas__ratios__FinancialRatioResponse":{"properties":{"year":{"type":"string","title":"Year"},"net_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Net Profit Margin Pct"},"operating_profit_margin_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Operating Profit Margin Pct"},"return_on_equity_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Return On Equity Pct"},"debt_to_equity":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Debt To Equity"},"interest_coverage":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Interest Coverage"},"asset_turnover":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Asset Turnover"},"free_cash_flow_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Free Cash Flow Cr"},"capex_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Capex Cr"},"earnings_per_share":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Earnings Per Share"},"book_value_per_share":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Book Value Per Share"},"dividend_payout_ratio_pct":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Dividend Payout Ratio Pct"},"total_debt_cr":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Total Debt Cr"},"cash_from_operations_cr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Cash From Operations Cr"},"revenue_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Revenue Cagr 5Yr"},"revenue_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Revenue Cagr 5Yr Flag"},"pat_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Pat Cagr 5Yr"},"pat_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Pat Cagr 5Yr Flag"},"eps_cagr_5yr":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Eps Cagr 5Yr"},"eps_cagr_5yr_flag":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Eps Cagr 5Yr Flag"},"composite_quality_score":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Composite Quality Score"}},"type":"object","required":["year","net_profit_margin_pct","operating_profit_margin_pct","return_on_equity_pct","debt_to_equity","interest_coverage","asset_turnover","free_cash_flow_cr","capex_cr","earnings_per_share","book_value_per_share","dividend_payout_ratio_pct","total_debt_cr","cash_from_operations_cr","revenue_cagr_5yr","revenue_cagr_5yr_flag","pat_cagr_5yr","pat_cagr_5yr_flag","eps_cagr_5yr","eps_cagr_5yr_flag","composite_quality_score"],"title":"FinancialRatioResponse"}}}}
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "NIFTY100 Financial Intelligence API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "description": "Check whether the API is running successfully.",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Get Companies",
+        "description": "Retrieve all companies with optional filtering by sector, market cap category, and search keyword.",
+        "operationId": "get_companies_api_v1_companies_get",
+        "parameters": [
+          {
+            "name": "sector",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter companies by broad sector",
+              "examples": [
+                "Healthcare"
+              ],
+              "title": "Sector"
+            },
+            "description": "Filter companies by broad sector"
+          },
+          {
+            "name": "market_cap_category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by market capitalization category",
+              "examples": [
+                "Large Cap"
+              ],
+              "title": "Market Cap Category"
+            },
+            "description": "Filter by market capitalization category"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Search by company ID or company name",
+              "examples": [
+                "ABB"
+              ],
+              "title": "Search"
+            },
+            "description": "Search by company ID or company name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyResponse"
+                  },
+                  "title": "Response Get Companies Api V1 Companies Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Company Profile",
+        "description": "Returns full company profile with latest financial ratios.",
+        "operationId": "get_company_profile_api_v1_companies__ticker__get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfile"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}/pl": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Profit & Loss History",
+        "description": "Returns Profit & Loss history for a company.",
+        "operationId": "get_profit_and_loss_api_v1_companies__ticker__pl_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "from_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Start year (e.g. Mar 2019)",
+              "title": "From Year"
+            },
+            "description": "Start year (e.g. Mar 2019)"
+          },
+          {
+            "name": "to_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "End year (e.g. Mar 2024)",
+              "title": "To Year"
+            },
+            "description": "End year (e.g. Mar 2024)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProfitAndLossResponse"
+                  },
+                  "title": "Response Get Profit And Loss Api V1 Companies  Ticker  Pl Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}/bs": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Balance Sheet History",
+        "description": "Returns Balance Sheet history for a company.",
+        "operationId": "get_balance_sheet_api_v1_companies__ticker__bs_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "from_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Start year (e.g. Mar 2019)",
+              "title": "From Year"
+            },
+            "description": "Start year (e.g. Mar 2019)"
+          },
+          {
+            "name": "to_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "End year (e.g. Mar 2024)",
+              "title": "To Year"
+            },
+            "description": "End year (e.g. Mar 2024)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BalanceSheetResponse"
+                  },
+                  "title": "Response Get Balance Sheet Api V1 Companies  Ticker  Bs Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}/cashflow": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Cash Flow History",
+        "description": "Returns Cash Flow history for a company.",
+        "operationId": "get_cashflow_api_v1_companies__ticker__cashflow_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "from_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Start year (e.g. Mar 2019)",
+              "title": "From Year"
+            },
+            "description": "Start year (e.g. Mar 2019)"
+          },
+          {
+            "name": "to_year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "End year (e.g. Mar 2024)",
+              "title": "To Year"
+            },
+            "description": "End year (e.g. Mar 2024)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CashflowResponse"
+                  },
+                  "title": "Response Get Cashflow Api V1 Companies  Ticker  Cashflow Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}/ratios": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Financial Ratios",
+        "description": "Returns computed financial ratios for a company. Optionally filter by year.",
+        "operationId": "get_financial_ratios_api_v1_companies__ticker__ratios_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Return only a specific year (e.g. Mar 2024)",
+              "title": "Year"
+            },
+            "description": "Return only a specific year (e.g. Mar 2024)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/src__api__schemas__ratios__FinancialRatioResponse"
+                  },
+                  "title": "Response Get Financial Ratios Api V1 Companies  Ticker  Ratios Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/companies/{ticker}/tearsheet": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Download Company Tearsheet",
+        "description": "Returns the pre-generated PDF tearsheet for a company.",
+        "operationId": "download_tearsheet_api_v1_companies__ticker__tearsheet_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/screener": {
+      "get": {
+        "tags": [
+          "Screener"
+        ],
+        "summary": "Financial Screener",
+        "description": "Screen companies using financial filters.",
+        "operationId": "financial_screener_api_v1_screener_get",
+        "parameters": [
+          {
+            "name": "min_roe",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Roe"
+            }
+          },
+          {
+            "name": "max_de",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max De"
+            }
+          },
+          {
+            "name": "min_fcf",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Fcf"
+            }
+          },
+          {
+            "name": "sector",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Sector"
+            }
+          },
+          {
+            "name": "min_rev_cagr_5yr",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Rev Cagr 5Yr"
+            }
+          },
+          {
+            "name": "min_pat_cagr_5yr",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Pat Cagr 5Yr"
+            }
+          },
+          {
+            "name": "max_pe",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Pe"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScreenerResponse"
+                  },
+                  "title": "Response Financial Screener Api V1 Screener Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sectors": {
+      "get": {
+        "summary": "Sectors",
+        "operationId": "sectors_api_v1_sectors_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/peers": {
+      "get": {
+        "tags": [
+          "Peers"
+        ],
+        "summary": "Peers",
+        "operationId": "peers_api_v1_peers_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/market-cap": {
+      "get": {
+        "tags": [
+          "Valuation"
+        ],
+        "summary": "Get Market Cap",
+        "operationId": "get_market_cap_api_v1_market_cap_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/portfolio/stats": {
+      "get": {
+        "summary": "Portfolio",
+        "operationId": "portfolio_api_v1_portfolio_stats_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/documents": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Get Annual Reports",
+        "operationId": "get_documents_api_v1_documents_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/financial-ratios": {
+      "get": {
+        "tags": [
+          "Financial Ratios"
+        ],
+        "summary": "Get Financial Ratios",
+        "description": "Retrieve financial ratios with optional filtering by company and year.",
+        "operationId": "get_financial_ratios_api_v1_financial_ratios_get",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by company ID",
+              "title": "Company Id"
+            },
+            "description": "Filter by company ID"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by financial year",
+              "title": "Year"
+            },
+            "description": "Filter by financial year"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/src__api__schemas__financial_ratio__FinancialRatioResponse"
+                  },
+                  "title": "Response Get Financial Ratios Api V1 Financial Ratios Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-roe": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Roe",
+        "operationId": "top_roe_api_v1_analytics_top_roe_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-revenue-cagr": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Revenue Cagr",
+        "operationId": "top_revenue_cagr_api_v1_analytics_top_revenue_cagr_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-quality-score": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Quality Score",
+        "operationId": "top_quality_score_api_v1_analytics_top_quality_score_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-eps-cagr": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Eps Cagr",
+        "operationId": "top_eps_cagr_api_v1_analytics_top_eps_cagr_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-pat-cagr": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Pat Cagr",
+        "operationId": "top_pat_cagr_api_v1_analytics_top_pat_cagr_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-free-cash-flow": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Free Cash Flow",
+        "operationId": "top_free_cash_flow_api_v1_analytics_top_free_cash_flow_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-dividend-payout": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Dividend Payout",
+        "operationId": "top_dividend_payout_api_v1_analytics_top_dividend_payout_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-growth-stocks": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Growth Stocks",
+        "operationId": "top_growth_stocks_api_v1_analytics_top_growth_stocks_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-net-profit-margin": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Net Profit Margin",
+        "operationId": "top_net_profit_margin_api_v1_analytics_top_net_profit_margin_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/top-operating-profit-margin": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top Operating Profit Margin",
+        "operationId": "top_operating_profit_margin_api_v1_analytics_top_operating_profit_margin_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/company-scorecard": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Company Scorecard",
+        "operationId": "company_scorecard_api_v1_analytics_company_scorecard_get",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Company ID (Example: ABB)",
+              "title": "Company Id"
+            },
+            "description": "Company ID (Example: ABB)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/compare": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Compare Companies",
+        "operationId": "compare_companies_api_v1_analytics_compare_get",
+        "parameters": [
+          {
+            "name": "company1",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "First company ID",
+              "title": "Company1"
+            },
+            "description": "First company ID"
+          },
+          {
+            "name": "company2",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Second company ID",
+              "title": "Company2"
+            },
+            "description": "Second company ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/rankings": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Rankings",
+        "operationId": "rankings_api_v1_analytics_rankings_get",
+        "parameters": [
+          {
+            "name": "metric",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Metric to rank by",
+              "title": "Metric"
+            },
+            "description": "Metric to rank by"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analytics/screen-stocks": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Screen Stocks",
+        "operationId": "screen_stocks_api_v1_analytics_screen_stocks_get",
+        "parameters": [
+          {
+            "name": "min_roe",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Minimum Return on Equity (%)",
+              "default": 20,
+              "title": "Min Roe"
+            },
+            "description": "Minimum Return on Equity (%)"
+          },
+          {
+            "name": "max_debt_to_equity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "description": "Maximum Debt to Equity",
+              "default": 0.5,
+              "title": "Max Debt To Equity"
+            },
+            "description": "Maximum Debt to Equity"
+          },
+          {
+            "name": "min_quality_score",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Minimum Composite Quality Score",
+              "default": 20,
+              "title": "Min Quality Score"
+            },
+            "description": "Minimum Composite Quality Score"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/risk/top-debt-to-equity": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Top Debt To Equity",
+        "operationId": "top_debt_to_equity_api_v1_risk_top_debt_to_equity_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/risk/low-debt-companies": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "Low Debt Companies",
+        "operationId": "low_debt_companies_api_v1_risk_low_debt_companies_get",
+        "parameters": [
+          {
+            "name": "max_debt_to_equity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Maximum Debt to Equity",
+              "default": 0.5,
+              "title": "Max Debt To Equity"
+            },
+            "description": "Maximum Debt to Equity"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/risk/high-roe-low-debt": {
+      "get": {
+        "tags": [
+          "Risk"
+        ],
+        "summary": "High Roe Low Debt",
+        "operationId": "high_roe_low_debt_api_v1_risk_high_roe_low_debt_get",
+        "parameters": [
+          {
+            "name": "min_roe",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Minimum Return on Equity (%)",
+              "default": 20,
+              "title": "Min Roe"
+            },
+            "description": "Minimum Return on Equity (%)"
+          },
+          {
+            "name": "max_debt_to_equity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Maximum Debt to Equity",
+              "default": 0.5,
+              "title": "Max Debt To Equity"
+            },
+            "description": "Maximum Debt to Equity"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of companies to return",
+              "default": 10,
+              "title": "Limit"
+            },
+            "description": "Number of companies to return"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BalanceSheetResponse": {
+        "properties": {
+          "year": {
+            "type": "string",
+            "title": "Year"
+          },
+          "equity_capital": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Equity Capital"
+          },
+          "reserves": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reserves"
+          },
+          "borrowings": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Borrowings"
+          },
+          "other_liabilities": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Other Liabilities"
+          },
+          "total_liabilities": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Liabilities"
+          },
+          "fixed_assets": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fixed Assets"
+          },
+          "cwip": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cwip"
+          },
+          "investments": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Investments"
+          },
+          "other_asset": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Other Asset"
+          },
+          "total_assets": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Assets"
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "equity_capital",
+          "reserves",
+          "borrowings",
+          "other_liabilities",
+          "total_liabilities",
+          "fixed_assets",
+          "cwip",
+          "investments",
+          "other_asset",
+          "total_assets"
+        ],
+        "title": "BalanceSheetResponse"
+      },
+      "CashflowResponse": {
+        "properties": {
+          "year": {
+            "type": "string",
+            "title": "Year"
+          },
+          "operating_activity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Activity"
+          },
+          "investing_activity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Investing Activity"
+          },
+          "financing_activity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Financing Activity"
+          },
+          "net_cash_flow": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Cash Flow"
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "operating_activity",
+          "investing_activity",
+          "financing_activity",
+          "net_cash_flow"
+        ],
+        "title": "CashflowResponse"
+      },
+      "CompanyProfile": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "company_logo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Company Logo"
+          },
+          "company_name": {
+            "type": "string",
+            "title": "Company Name"
+          },
+          "chart_link": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chart Link"
+          },
+          "about_company": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "About Company"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          },
+          "nse_profile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nse Profile"
+          },
+          "bse_profile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bse Profile"
+          },
+          "face_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Face Value"
+          },
+          "book_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Book Value"
+          },
+          "roe_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roe Percentage"
+          },
+          "roce_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roce Percentage"
+          },
+          "broad_sector": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Broad Sector"
+          },
+          "sub_sector": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Sector"
+          },
+          "market_cap_category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Market Cap Category"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          },
+          "return_on_equity_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Return On Equity Pct"
+          },
+          "debt_to_equity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debt To Equity"
+          },
+          "operating_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Profit Margin Pct"
+          },
+          "net_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Profit Margin Pct"
+          },
+          "revenue_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr"
+          },
+          "pat_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr"
+          },
+          "eps_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps Cagr 5Yr"
+          },
+          "composite_quality_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composite Quality Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "company_logo",
+          "company_name",
+          "chart_link",
+          "about_company",
+          "website",
+          "nse_profile",
+          "bse_profile",
+          "face_value",
+          "book_value",
+          "roe_percentage",
+          "roce_percentage",
+          "broad_sector",
+          "sub_sector",
+          "market_cap_category",
+          "year",
+          "return_on_equity_pct",
+          "debt_to_equity",
+          "operating_profit_margin_pct",
+          "net_profit_margin_pct",
+          "revenue_cagr_5yr",
+          "pat_cagr_5yr",
+          "eps_cagr_5yr",
+          "composite_quality_score"
+        ],
+        "title": "CompanyProfile"
+      },
+      "CompanyResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "company_logo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Company Logo"
+          },
+          "company_name": {
+            "type": "string",
+            "title": "Company Name"
+          },
+          "chart_link": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chart Link"
+          },
+          "about_company": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "About Company"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          },
+          "face_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Face Value"
+          },
+          "book_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Book Value"
+          },
+          "roe_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roe Percentage"
+          },
+          "roce_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roce Percentage"
+          },
+          "broad_sector": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Broad Sector"
+          },
+          "sub_sector": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sub Sector"
+          },
+          "market_cap_category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Market Cap Category"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "company_logo",
+          "company_name",
+          "chart_link",
+          "about_company",
+          "website",
+          "face_value",
+          "book_value",
+          "roe_percentage",
+          "roce_percentage",
+          "broad_sector",
+          "sub_sector",
+          "market_cap_category"
+        ],
+        "title": "CompanyResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "uptime_seconds": {
+            "type": "number",
+            "title": "Uptime Seconds"
+          },
+          "db_row_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Db Row Counts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "version",
+          "uptime_seconds",
+          "db_row_counts"
+        ],
+        "title": "HealthResponse"
+      },
+      "ProfitAndLossResponse": {
+        "properties": {
+          "year": {
+            "type": "string",
+            "title": "Year"
+          },
+          "sales": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sales"
+          },
+          "expenses": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expenses"
+          },
+          "operating_profit": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Profit"
+          },
+          "opm_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opm Percentage"
+          },
+          "other_income": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Other Income"
+          },
+          "interest": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interest"
+          },
+          "depreciation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Depreciation"
+          },
+          "profit_before_tax": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profit Before Tax"
+          },
+          "tax_percentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tax Percentage"
+          },
+          "net_profit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Profit"
+          },
+          "eps": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps"
+          },
+          "dividend_payout": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dividend Payout"
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "sales",
+          "expenses",
+          "operating_profit",
+          "opm_percentage",
+          "other_income",
+          "interest",
+          "depreciation",
+          "profit_before_tax",
+          "tax_percentage",
+          "net_profit",
+          "eps",
+          "dividend_payout"
+        ],
+        "title": "ProfitAndLossResponse"
+      },
+      "ScreenerResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "company_name": {
+            "type": "string",
+            "title": "Company Name"
+          },
+          "broad_sector": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Broad Sector"
+          },
+          "roe": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Roe"
+          },
+          "debt_to_equity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debt To Equity"
+          },
+          "free_cash_flow": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Free Cash Flow"
+          },
+          "revenue_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr"
+          },
+          "pat_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr"
+          },
+          "pe_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pe Ratio"
+          },
+          "composite_quality_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composite Quality Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "company_name",
+          "broad_sector",
+          "roe",
+          "debt_to_equity",
+          "free_cash_flow",
+          "revenue_cagr_5yr",
+          "pat_cagr_5yr",
+          "pe_ratio",
+          "composite_quality_score"
+        ],
+        "title": "ScreenerResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "src__api__schemas__financial_ratio__FinancialRatioResponse": {
+        "properties": {
+          "company_id": {
+            "type": "string",
+            "title": "Company Id"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          },
+          "net_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Profit Margin Pct"
+          },
+          "operating_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Profit Margin Pct"
+          },
+          "return_on_equity_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Return On Equity Pct"
+          },
+          "debt_to_equity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debt To Equity"
+          },
+          "interest_coverage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interest Coverage"
+          },
+          "asset_turnover": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset Turnover"
+          },
+          "free_cash_flow_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Free Cash Flow Cr"
+          },
+          "capex_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capex Cr"
+          },
+          "earnings_per_share": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Earnings Per Share"
+          },
+          "book_value_per_share": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Book Value Per Share"
+          },
+          "dividend_payout_ratio_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dividend Payout Ratio Pct"
+          },
+          "total_debt_cr": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Debt Cr"
+          },
+          "cash_from_operations_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cash From Operations Cr"
+          },
+          "revenue_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr"
+          },
+          "revenue_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr Flag"
+          },
+          "pat_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr"
+          },
+          "pat_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr Flag"
+          },
+          "eps_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps Cagr 5Yr"
+          },
+          "eps_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps Cagr 5Yr Flag"
+          },
+          "composite_quality_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composite Quality Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "company_id",
+          "year",
+          "net_profit_margin_pct",
+          "operating_profit_margin_pct",
+          "return_on_equity_pct",
+          "debt_to_equity",
+          "interest_coverage",
+          "asset_turnover",
+          "free_cash_flow_cr",
+          "capex_cr",
+          "earnings_per_share",
+          "book_value_per_share",
+          "dividend_payout_ratio_pct",
+          "total_debt_cr",
+          "cash_from_operations_cr",
+          "revenue_cagr_5yr",
+          "revenue_cagr_5yr_flag",
+          "pat_cagr_5yr",
+          "pat_cagr_5yr_flag",
+          "eps_cagr_5yr",
+          "eps_cagr_5yr_flag",
+          "composite_quality_score"
+        ],
+        "title": "FinancialRatioResponse"
+      },
+      "src__api__schemas__ratios__FinancialRatioResponse": {
+        "properties": {
+          "year": {
+            "type": "string",
+            "title": "Year"
+          },
+          "net_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Profit Margin Pct"
+          },
+          "operating_profit_margin_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Profit Margin Pct"
+          },
+          "return_on_equity_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Return On Equity Pct"
+          },
+          "debt_to_equity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debt To Equity"
+          },
+          "interest_coverage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interest Coverage"
+          },
+          "asset_turnover": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset Turnover"
+          },
+          "free_cash_flow_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Free Cash Flow Cr"
+          },
+          "capex_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capex Cr"
+          },
+          "earnings_per_share": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Earnings Per Share"
+          },
+          "book_value_per_share": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Book Value Per Share"
+          },
+          "dividend_payout_ratio_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dividend Payout Ratio Pct"
+          },
+          "total_debt_cr": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Debt Cr"
+          },
+          "cash_from_operations_cr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cash From Operations Cr"
+          },
+          "revenue_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr"
+          },
+          "revenue_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Cagr 5Yr Flag"
+          },
+          "pat_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr"
+          },
+          "pat_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pat Cagr 5Yr Flag"
+          },
+          "eps_cagr_5yr": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps Cagr 5Yr"
+          },
+          "eps_cagr_5yr_flag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eps Cagr 5Yr Flag"
+          },
+          "composite_quality_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Composite Quality Score"
+          }
+        },
+        "type": "object",
+        "required": [
+          "year",
+          "net_profit_margin_pct",
+          "operating_profit_margin_pct",
+          "return_on_equity_pct",
+          "debt_to_equity",
+          "interest_coverage",
+          "asset_turnover",
+          "free_cash_flow_cr",
+          "capex_cr",
+          "earnings_per_share",
+          "book_value_per_share",
+          "dividend_payout_ratio_pct",
+          "total_debt_cr",
+          "cash_from_operations_cr",
+          "revenue_cagr_5yr",
+          "revenue_cagr_5yr_flag",
+          "pat_cagr_5yr",
+          "pat_cagr_5yr_flag",
+          "eps_cagr_5yr",
+          "eps_cagr_5yr_flag",
+          "composite_quality_score"
+        ],
+        "title": "FinancialRatioResponse"
+      }
+    }
+  }
+}
